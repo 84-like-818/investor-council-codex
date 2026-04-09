@@ -650,6 +650,28 @@ def _find_composer_region(window: Any) -> Any | None:
     return candidates[0][1]
 
 
+def _looks_like_codex_home(window: Any) -> bool:
+    try:
+        descendants = list(window.descendants())
+    except Exception:
+        return False
+
+    markers = (
+        "add new project",
+        "????",
+        "?????",
+        "????",
+        "open project",
+    )
+    for control in descendants:
+        name = _control_name(control).casefold()
+        if not name:
+            continue
+        if any(marker in name for marker in markers):
+            return True
+    return False
+
+
 def _find_send_button(window: Any) -> Any | None:
     window_rect = _control_rect(window)
     candidates: list[tuple[int, Any]] = []
@@ -717,6 +739,12 @@ def _inject_prompt(prompt: str, mentor_name: str, force_new_thread: bool = False
             window = _find_codex_window() or window
 
         if composer is None:
+            if _looks_like_codex_home(window):
+                return (
+                    False,
+                    f"{thread_message} 但当前 Codex 还停留在首页，尚未进入可对话的项目界面；请先在 Codex 中添加或打开一个项目，再回到投资大师智能团重试。",
+                    thread_action,
+                )
             return False, f"{thread_message} 但没有找到 Codex 输入框。", thread_action
 
         try:
@@ -918,6 +946,9 @@ def runtime_status() -> dict[str, Any]:
     elif not skill_ready:
         blocking_message = "总入口 skill 还没有同步完成，请先执行一次修复。"
         blocking_action = str(check_map["skill_sync"]["action"])
+    elif restart_required:
+        blocking_message = "新的投资大师技能已经同步，但当前 Codex 还是旧进程；请先完全退出并重新打开 Codex。"
+        blocking_action = "先彻底退出 Codex，再重新打开投资大师智能团继续。"
     elif not product_home_ok:
         blocking_message = str(check_map["product_home"]["message"])
         blocking_action = str(check_map["product_home"]["action"])
@@ -984,6 +1015,14 @@ def perform_handoff(
         result["message"] = "检测到 Codex 尚未登录，请先登录后再开始对话。"
         return result
 
+    if codex_restart_required():
+        result["message"] = "新的投资大师技能已经同步，但当前 Codex 还是旧进程；请先完全退出 Codex，再重新打开投资大师智能团继续。"
+        return result
+
+
+    if codex_restart_required():
+        result["message"] = "新的投资大师技能已经同步，但当前 Codex 还是旧进程；请先完全退出 Codex，再重新打开投资大师智能团继续。"
+        return result
     copied = _copy_to_clipboard(prompt)
     if not copied:
         result["message"] = "提示词没有成功复制到剪贴板，请稍后重试。"
