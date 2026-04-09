@@ -64,22 +64,27 @@ function renderBrand(bootstrap) {
 function renderStatusStrip(runtime) {
   const strip = document.getElementById("statusStrip");
   strip.innerHTML = "";
-  const items = [
-    {
-      label: runtime.blocking
-        ? (runtime.codex_installed ? "还差一步可开始" : "需要先安装 Codex")
-        : "产品已就绪",
-      tone: runtime.blocking ? statusClass(false, true) : statusClass(true),
-    },
-    {
-      label: runtime.skill_installed ? "人物入口已同步" : "人物入口待修复",
-      tone: runtime.skill_installed ? statusClass(true) : statusClass(false, true),
-    },
-    {
-      label: runtime.market_data_ready ? "实时市场数据可用" : "实时数据存在缺口",
-      tone: runtime.market_data_ready ? statusClass(true) : statusClass(false, true),
-    },
-  ];
+  const items = [];
+
+  if (runtime.blocking) {
+    items.push({
+      label: runtime.codex_installed ? "还差一步可开始" : "需要先安装 Codex",
+      tone: statusClass(false, true),
+    });
+  } else {
+    items.push({
+      label: "产品已就绪",
+      tone: statusClass(true),
+    });
+  }
+
+  if (!runtime.market_data_ready) {
+    items.push({
+      label: "实时数据存在缺口",
+      tone: statusClass(false, true),
+    });
+  }
+
   items.forEach((item) => {
     const node = document.createElement("span");
     node.className = `status-pill ${item.tone}`;
@@ -113,10 +118,15 @@ function renderRuntimeSummary(runtime) {
       tone: statusClass(runtime.auto_injection_available, true),
     },
     {
+      text: runtime.skill_installed ? "人物入口已同步" : "人物入口待修复",
+      tone: statusClass(runtime.skill_installed, true),
+    },
+    {
       text: runtime.product_home_writable ? "本地状态目录可写" : "本地状态目录不可写",
       tone: statusClass(runtime.product_home_writable),
     },
   ];
+
   items.forEach((item) => {
     const chip = document.createElement("span");
     chip.className = `mini-pill ${item.tone}`;
@@ -176,12 +186,12 @@ function createPlannedCard(mentor) {
 function renderMentors(payload) {
   state.mentors = payload;
   state.mentorMap = new Map([...payload.ready, ...payload.planned].map((mentor) => [mentor.id, mentor]));
-  document.getElementById("readyCount").textContent = `${payload.ready.length}`;
-  document.getElementById("plannedCount").textContent = `${payload.planned.length}`;
+
   const readyBox = document.getElementById("readyMentors");
   const plannedBox = document.getElementById("plannedMentors");
   readyBox.innerHTML = "";
   plannedBox.innerHTML = "";
+
   payload.ready.forEach((mentor) => readyBox.appendChild(createReadyCard(mentor)));
   payload.planned.forEach((mentor) => plannedBox.appendChild(createPlannedCard(mentor)));
 }
@@ -196,8 +206,8 @@ function renderSelectedMentor(mentor) {
   if (!mentor) {
     title.textContent = "先选择一位投资大师";
     tag.textContent = "未选择";
-    card.className = "mentor-focus empty-state";
-    card.innerHTML = "<p>从左侧选定一位人物后，这里会显示人物定位、当前目标线程和本轮问题输入区。</p>";
+    card.className = "selected-mentor empty-state";
+    card.innerHTML = "<p>从左侧选定一位人物后，这里会显示人物定位、专属线程和本轮问题输入区。</p>";
     continueBtn.textContent = "继续该人物对话";
     newThreadBtn.textContent = "新开该人物线程";
     renderThreadPlan(null);
@@ -207,9 +217,9 @@ function renderSelectedMentor(mentor) {
 
   title.textContent = mentor.display_name_zh;
   tag.textContent = mentor.selection_label;
-  card.className = "mentor-focus";
+  card.className = "selected-mentor";
   card.innerHTML = `
-    <div class="focus-top">
+    <div class="selected-mentor-top">
       <img class="focus-avatar" src="${mentor.avatar_path}" alt="${escapeHtml(mentor.display_name_zh)} 头像">
       <div>
         <p class="focus-en-name">${escapeHtml(mentor.display_name_en)}</p>
@@ -217,8 +227,8 @@ function renderSelectedMentor(mentor) {
         <p class="focus-summary">${escapeHtml(mentor.summary || mentor.style || "")}</p>
       </div>
     </div>
-    <div class="focus-meta">
-      <span class="focus-pill">${escapeHtml(mentor.selection_label)}</span>
+    <div class="selected-mentor-meta">
+      <span class="focus-pill">${escapeHtml(mentor.selection_label || "")}</span>
       <span class="focus-pill muted">${escapeHtml(mentor.thread_title || "")}</span>
     </div>
   `;
@@ -229,37 +239,59 @@ function renderSelectedMentor(mentor) {
 }
 
 function renderThreadPlan(mentor) {
+  const panel = document.getElementById("threadSummary");
   const title = document.getElementById("threadPlanTitle");
   const copy = document.getElementById("threadPlanCopy");
   const pill = document.getElementById("threadModePill");
+
   if (!mentor) {
+    panel.classList.add("hidden");
     title.textContent = "尚未选择人物";
     copy.textContent = "默认会优先回到该人物自己的 Codex 线程；如果你想把这次问题单独拆开，也可以强制新开。";
     pill.textContent = "优先延续专属线程";
     return;
   }
+
+  panel.classList.remove("hidden");
   title.textContent = mentor.thread_title || `${mentor.display_name_zh}｜投资大师智能团`;
-  copy.textContent = `默认会先尝试回到「${mentor.display_name_zh}」自己的 Codex 线程，让这个人物的上下文自然延续。`;
+  copy.textContent = `默认会先尝试回到「${mentor.display_name_zh}」自己的 Codex 线程，让上下文自然延续。`;
   pill.textContent = "可继续，也可强制新开";
 }
 
 function renderLatestHandoff(record) {
   state.latestHandoff = record || null;
-  document.getElementById("resultMode").textContent = modeLabel(record?.mode);
-  document.getElementById("resultMode").className = `status-pill ${record?.delivery_ok || record?.ok ? "success" : "neutral"}`;
-  document.getElementById("lastSentAt").textContent = record?.sent_at_label || record?.updated_at || "尚未发送";
-  document.getElementById("lastThreadTitle").textContent = record?.thread_title || "尚未发送";
-  document.getElementById("threadRouteHint").textContent = record?.message || "开始交接后，这里会明确告诉你是回到了已有线程，还是新开了该人物线程。";
-  document.getElementById("lastSendContent").textContent = record?.display_prompt || "暂时还没有可展示的提交内容。";
+  const panel = document.getElementById("handoffSummary");
+  if (!record) {
+    panel.classList.add("hidden");
+    document.getElementById("resultMode").textContent = modeLabel();
+    document.getElementById("resultMode").className = "status-pill neutral";
+    document.getElementById("lastSentAt").textContent = "尚未发送";
+    document.getElementById("lastThreadTitle").textContent = "尚未发送";
+    document.getElementById("threadRouteHint").textContent = "开始交接后，这里会告诉你是进入已有线程，还是新开了该人物线程。";
+    document.getElementById("lastSendContent").textContent = "暂时还没有可展示的提交内容。";
+    return;
+  }
+
+  panel.classList.remove("hidden");
+  document.getElementById("resultMode").textContent = modeLabel(record.mode);
+  document.getElementById("resultMode").className = `status-pill ${record.delivery_ok || record.ok ? "success" : "warn"}`;
+  document.getElementById("lastSentAt").textContent = record.sent_at_label || record.updated_at || "刚刚发送";
+  document.getElementById("lastThreadTitle").textContent = record.thread_title || "已进入人物线程";
+  document.getElementById("threadRouteHint").textContent = record.message || "已完成交接。";
+  document.getElementById("lastSendContent").textContent = record.display_prompt || "暂时没有可展示的发送内容。";
 }
 
 function renderRecentThreads(history) {
+  const panel = document.getElementById("historyPanel");
   const list = document.getElementById("recentThreadList");
   list.innerHTML = "";
+
   if (!history || history.length === 0) {
-    list.innerHTML = "<p class='empty-mini'>还没有可展示的线程记录。</p>";
+    panel.classList.add("hidden");
     return;
   }
+
+  panel.classList.remove("hidden");
   history.slice(0, 5).forEach((item) => {
     const node = document.createElement("article");
     node.className = "thread-list-item";
@@ -275,26 +307,32 @@ function renderRecentThreads(history) {
 }
 
 function renderNoticeCenter(noticeCenter) {
+  const panel = document.getElementById("noticePanel");
   const list = document.getElementById("noticeList");
   list.innerHTML = "";
+
   if (!noticeCenter) {
-    list.innerHTML = "<p class='empty-mini'>说明文档暂时不可用。</p>";
+    panel.classList.add("hidden");
     return;
   }
-  [noticeCenter.prerequisites, noticeCenter.risk, noticeCenter.privacy].filter(Boolean).forEach((item) => {
-    const node = document.createElement("details");
-    node.className = "notice-item";
-    const bullets = (item.bullets || []).map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("");
-    node.innerHTML = `
-      <summary>
-        <span>${escapeHtml(item.title || "说明")}</span>
-        <span class="notice-tag">查看</span>
-      </summary>
-      <p class="notice-summary">${escapeHtml(item.summary || "")}</p>
-      <ul class="notice-bullets">${bullets}</ul>
-    `;
-    list.appendChild(node);
-  });
+
+  panel.classList.remove("hidden");
+  [noticeCenter.prerequisites, noticeCenter.risk, noticeCenter.privacy]
+    .filter(Boolean)
+    .forEach((item) => {
+      const node = document.createElement("details");
+      node.className = "notice-item";
+      const bullets = (item.bullets || []).map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("");
+      node.innerHTML = `
+        <summary>
+          <span>${escapeHtml(item.title || "说明")}</span>
+          <span class="notice-tag">查看</span>
+        </summary>
+        <p class="notice-summary">${escapeHtml(item.summary || "")}</p>
+        <ul class="notice-bullets">${bullets}</ul>
+      `;
+      list.appendChild(node);
+    });
 }
 
 async function refreshRuntime() {
@@ -453,7 +491,8 @@ function registerEvents() {
   document.getElementById("repairRuntimeBtn").addEventListener("click", repairRuntime);
   document.getElementById("toggleDiagnosticsBtn").addEventListener("click", () => {
     const panel = document.getElementById("diagnosticsPanel");
-    panel.open = !panel.open;
+    panel.open = true;
+    panel.scrollIntoView({ behavior: "smooth", block: "start" });
   });
   document.getElementById("drawerBackdrop").addEventListener("click", closeDrawer);
   document.getElementById("closeDrawerBtn").addEventListener("click", closeDrawer);
@@ -487,5 +526,3 @@ window.addEventListener("DOMContentLoaded", async () => {
     alert("壳应用初始化失败，请稍后重试。");
   }
 });
-
-

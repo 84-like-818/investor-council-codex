@@ -24,7 +24,7 @@
           <div class="action-row">
             <button id="refreshRuntimeBtn" class="text-btn" type="button">刷新状态</button>
             <button id="repairRuntimeBtn" class="secondary-btn compact-btn" type="button">一键修复</button>
-            <button id="toggleDiagnosticsBtn" class="text-btn" type="button">诊断面板</button>
+            <button id="toggleDiagnosticsBtn" class="text-btn" type="button">诊断</button>
           </div>
         </div>
       </header>
@@ -38,56 +38,50 @@
         <p id="blockingAction" class="blocking-action"></p>
       </section>
 
-      <main class="layout">
-        <section class="panel mentor-panel">
-          <div class="section-head">
+      <main class="main-grid">
+        <section class="panel mentor-rail">
+          <div class="section-head section-head-column">
             <div>
-              <p class="eyebrow eyebrow-small">人物选择</p>
-              <h2>选择一位投资大师</h2>
+              <p class="eyebrow eyebrow-small">传奇人物</p>
+              <h2>选择你的思维陪练</h2>
             </div>
+            <p class="section-copy">每位人物都对应一条独立线程和一套独立记忆。</p>
           </div>
 
-          <div class="mentor-shelf">
-            <section>
-              <div class="section-subhead">
-                <h3>已就绪人物</h3>
-                <span id="readyCount" class="count-pill">0</span>
-              </div>
-              <div id="readyMentors" class="mentor-grid"></div>
-            </section>
+          <section class="mentor-block">
+            <h3 class="subheading">立即可用</h3>
+            <div id="readyMentors" class="mentor-grid"></div>
+          </section>
 
-            <section class="planned-block">
-              <div class="section-subhead">
-                <h3>即将上线</h3>
-                <span id="plannedCount" class="count-pill count-pill-muted">0</span>
-              </div>
-              <div id="plannedMentors" class="planned-grid"></div>
-            </section>
-          </div>
+          <section class="mentor-block planned-block">
+            <div class="subheading-row">
+              <h3 class="subheading">即将上线</h3>
+              <span class="hint-text">可先查看人物详情并关注</span>
+            </div>
+            <div id="plannedMentors" class="planned-row"></div>
+          </section>
         </section>
 
         <section class="panel workspace-panel">
           <div class="section-head section-head-tight">
             <div>
-              <p class="eyebrow eyebrow-small">对话准备</p>
+              <p class="eyebrow eyebrow-small">开始对话</p>
               <h2 id="selectedMentorTitle">先选择一位投资大师</h2>
             </div>
             <span id="selectedMentorTag" class="selected-tag">未选择</span>
           </div>
 
-          <section id="selectedMentorCard" class="mentor-focus empty-state">
-            <p>从左侧选定一位人物后，这里会显示人物定位、当前目标线程以及本轮输入区。</p>
+          <section id="selectedMentorCard" class="selected-mentor empty-state">
+            <p>从左侧选中人物后，这里会显示该人物的核心定位、专属线程和提问入口。</p>
           </section>
 
-          <section class="thread-summary">
+          <section id="threadSummary" class="thread-summary hidden">
             <div>
-              <p class="eyebrow eyebrow-small">当前目标线程</p>
+              <p class="eyebrow eyebrow-small">本次将进入</p>
               <h3 id="threadPlanTitle">尚未选择人物</h3>
-              <p id="threadPlanCopy" class="thread-plan-copy">默认会优先回到该人物自己的 Codex 线程；如果你想把这次问题单独拆开，也可以强制新开。</p>
+              <p id="threadPlanCopy" class="thread-plan-copy">默认会优先回到该人物的专属线程，让上下文自然延续。</p>
             </div>
-            <div class="thread-pills">
-              <span id="threadModePill" class="meta-pill">优先延续专属线程</span>
-            </div>
+            <span id="threadModePill" class="meta-pill">优先延续专属线程</span>
           </section>
 
           <form id="handoffForm" class="handoff-form">
@@ -126,51 +120,48 @@
               <button id="newThreadBtn" class="secondary-btn" type="submit">新开该人物线程</button>
             </div>
           </form>
+
+          <section id="handoffSummary" class="handoff-summary hidden">
+            <div class="handoff-head">
+              <div>
+                <p class="eyebrow eyebrow-small">最近一次交接</p>
+                <h3>发送结果</h3>
+              </div>
+              <span id="resultMode" class="status-pill neutral">等待操作</span>
+            </div>
+            <p id="lastSentAt" class="result-time">尚未发送</p>
+            <div class="handoff-card">
+              <label>进入线程</label>
+              <strong id="lastThreadTitle">尚未发送</strong>
+              <p id="threadRouteHint" class="result-message">开始交接后，这里会告诉你是进入已有线程，还是新开了该人物线程。</p>
+            </div>
+            <div class="handoff-card">
+              <label>最近一次发送内容</label>
+              <pre id="lastSendContent" class="last-send-content">暂时还没有可展示的提交内容。</pre>
+            </div>
+          </section>
         </section>
-
-        <aside class="panel insight-panel">
-          <div class="section-head section-head-tight">
-            <div>
-              <p class="eyebrow eyebrow-small">最近一次交接</p>
-              <h2>发送结果</h2>
-            </div>
-            <span id="resultMode" class="status-pill neutral">等待操作</span>
-          </div>
-
-          <div class="result-meta-row">
-            <span id="lastSentAt" class="result-time">尚未发送</span>
-          </div>
-
-          <section class="result-card">
-            <label>进入线程</label>
-            <strong id="lastThreadTitle">尚未发送</strong>
-            <p id="threadRouteHint" class="result-message">开始交接后，这里会明确告诉你是回到了已有线程，还是新开了该人物线程。</p>
-          </section>
-
-          <section class="result-card">
-            <label>最近一次提交</label>
-            <pre id="lastSendContent" class="last-send-content">暂时还没有可展示的提交内容。</pre>
-          </section>
-
-          <section class="result-card">
-            <label>最近人物线程</label>
-            <div id="recentThreadList" class="recent-thread-list"></div>
-          </section>
-
-          <section class="result-card notice-card">
-            <label>使用前提与说明</label>
-            <div id="noticeList" class="notice-list"></div>
-          </section>
-
-          <details id="diagnosticsPanel" class="diagnostics-panel">
-            <summary>运行诊断</summary>
-            <div class="diagnostics-body">
-              <div id="runtimeSummary" class="runtime-summary"></div>
-              <div id="diagnosticsList" class="diagnostics-list"></div>
-            </div>
-          </details>
-        </aside>
       </main>
+
+      <section class="bottom-grid">
+        <details id="historyPanel" class="panel detail-panel hidden">
+          <summary>最近人物线程</summary>
+          <div id="recentThreadList" class="recent-thread-list"></div>
+        </details>
+
+        <details id="noticePanel" class="panel detail-panel">
+          <summary>使用前提与说明</summary>
+          <div id="noticeList" class="notice-list"></div>
+        </details>
+
+        <details id="diagnosticsPanel" class="panel detail-panel">
+          <summary>运行诊断</summary>
+          <div class="diagnostics-body">
+            <div id="runtimeSummary" class="runtime-summary"></div>
+            <div id="diagnosticsList" class="diagnostics-list"></div>
+          </div>
+        </details>
+      </section>
     </div>
 
     <div id="mentorDrawer" class="drawer hidden" aria-hidden="true">
@@ -240,4 +231,3 @@
     <script src="/app.js"></script>
   </body>
 </html>
-
