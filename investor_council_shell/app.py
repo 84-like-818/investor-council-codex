@@ -42,8 +42,8 @@ class InvestorCouncilBackend:
         return {
             "brand": APP_NAME,
             "version": APP_VERSION,
-            "headline": "把投资大师的思考框架，收成一个能每天直接使用的中文投资助手。",
-            "subline": "选择人物，填入市场背景、仓位和标的，然后直接把这轮讨论交给对应人物的 Codex 专属线程。",
+            "headline": "把传奇投资人的长期资料、关键案例与方法论，蒸馏成一个可以每天对话的中文思维成长助手。",
+            "subline": "进入利弗莫尔、巴菲特等传奇人物的专属线程，把市场、仓位与问题交给他们的长期框架，让每一次讨论都成为一次认知升级。",
             "brand_icon": self.brand_icon,
             "default_mentor": self.default_mentor,
             "runtime": runtime,
@@ -451,4 +451,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 

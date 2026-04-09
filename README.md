@@ -1,90 +1,113 @@
-﻿> 投资大师智能团的公开发布与安装，请优先查看 GitHub Releases 配套文档：
-> - `docs/investor_council_release_quickstart_cn.md`
-> - `docs/investor_council_release_notes_cn.md`
-> - `docs/investor_council_github_releases.md`
->
-> 面向普通用户的默认路径是 `GitHub Releases -> 投资大师智能团-Setup.exe`。`Portable.zip` 和 `Codex 一句 prompt` 仅作为备用 / 高级路径。
-# Livermore 自动化全面采集资料系统
+﻿# 投资大师智能团
 
-这是一套**清单驱动、可复跑、可追踪、可长期复用**的资料采集系统，核心目标：
+> 把传奇投资人的长期资料、关键案例与方法论框架，蒸馏成一个可以每天对话、持续陪伴你思考市场的中文成长助手。
 
-1. **尽可能多拿资料**：能直接下载就直接下载。
-2. **拿不到也保留线索**：至少保留落地页、候选下载链接、来源信息和错误原因。
-3. **自动生成缺失清单**：每次运行后自动产出缺失报告、线索队列和总索引。
-4. **可长期复用**：不仅能采 Jesse Livermore，也能扩展到任何人物、主题、项目。
+## 它是什么
 
-## 这套系统会输出什么
+“投资大师智能团”不是一个普通的问答壳，也不是一个只会复述投资名言的角色扮演器。
 
-- `projects/<project>/data/acquired/`：真正拿到的文件
-- `projects/<project>/data/landing_pages/`：页面快照、候选链接线索
-- `projects/<project>/data/incoming_manual/`：你手工补进去的文件投递区
-- `projects/<project>/data/local_library/`：你原本就有的本地库
-- `projects/<project>/state/acquisition.db`：SQLite 状态数据库
-- `projects/<project>/reports/master_index.csv`：总索引
-- `projects/<project>/reports/missing_sources.csv`：缺失清单
-- `projects/<project>/reports/lead_queue.csv`：线索清单
-- `projects/<project>/reports/holdings_catalog.csv`：已获取文件目录
-- `projects/<project>/reports/unmatched_local_files.csv`：本地文件但未匹配来源
-- `projects/<project>/reports/dashboard.md`：适合人看的摘要
+它的目标是：
+- 以传奇投资人物为核心，建立可长期扩展的人物智能团
+- 基于大量公开资料、传记、股东信、年会问答、历史案例与研究包做结构化蒸馏
+- 让用户不只是“问一条建议”，而是进入某个顶级投资人的长期思维方式
+- 把市场讨论，从碎片化判断，提升到框架、节奏、风险识别与认知成长层面
 
-## 支持的采集策略
+你可以把它理解成：
+- 一个面向中国用户的投资思维成长助手
+- 一个以传奇人物为入口的认知训练场
+- 一个把“人物经历 + 原始资料 + 案例复盘 + 当下市场”接起来的 Codex 原生产品
 
-- 直接文件下载：PDF / EPUB / TXT / ZIP / 图片等
-- HTML 正文保存：页面本身就是正文时，直接存为 HTML 内容
-- 落地页保留：拿不到正文，也保留页面和候选链接
-- 自动提取候选下载链接：例如 PDF、Plain text、EPUB、MOBI、ZIP、Image
-- 本地资料合并：扫描你已有文件并自动参与缺失判断
-- 多次复跑：系统记录历史，不会每次都从头失忆
+## 为什么它和普通投资工具不同
 
-## 一键运行
+大多数工具只给你：
+- 行情
+- 指标
+- 资讯
+- 结论
 
-### Windows
+而“投资大师智能团”更看重的是：
+- 你如何理解趋势
+- 你如何面对波动
+- 你如何处理仓位与失效条件
+- 你如何在不同市场阶段维持纪律
+- 你如何借传奇人物的长期经验，修正自己的认知结构
 
-双击根目录的 `RUN_WINDOWS.cmd`
+它不是替你做决定，而是帮助你长出更稳的判断框架。
 
-### macOS / Linux
+## 人物不是皮肤，而是资料蒸馏后的思维入口
 
-```bash
-bash run.sh
-```
+本产品中的人物，不是简单的语气模仿。
 
-## 手工运行
+每个 ready 人物，都在尽可能基于其长期公开资料和代表性材料建立“研究员底座”，例如：
+- 本人著作、股东信、年会问答、公开讲话
+- 关键投资案例与失误案例
+- 历史事件、人物经历与方法论演进
+- 结构化证据包、锚点索引和案例映射
 
-```bash
-python -m venv .venv
-. .venv/bin/activate  # Windows 改用 .venv\Scripts\activate
-pip install -r requirements.txt
-python scripts/pipeline.py --project livermore
-```
+因此，它更像是：
+- 让利弗莫尔陪你读趋势、仓位、时机与失效
+- 让巴菲特陪你理解企业、资本配置、长期持有与错误定价
+- 未来继续扩展到更多传奇人物，形成真正的“投资大师智能团”
 
-## 复用到其他主题
+## 你得到的，不只是回答，而是一种更高阶的陪练方式
 
-```bash
-python scripts/create_project.py --project bernard-baruch
-python scripts/pipeline.py --project bernard-baruch
-```
+使用它时，你不是在问一个冷冰冰的系统：
+- “明天买不买？”
 
-新项目清单文件在：
+你是在进入一个人物专属的连续线程，围绕同一套框架反复思考：
+- 今天的市场结构是什么
+- 你的仓位和风险暴露在哪里
+- 这个判断为什么成立
+- 失效条件是什么
+- 如果看错了，下一步怎么处理
 
-```text
-projects/bernard-baruch/manifests/seeds_master.csv
-```
+这让产品从“单次问答工具”，变成“长期思维成长助手”。
 
-## Livermore 预置来源
+## 当前产品形态
 
-仓库已经预置了一批 Livermore 相关来源，包括：
+当前版本是一个 Codex 原生产品壳：
+- 前台是“投资大师智能团”独立中文桌面界面
+- 后台推理由用户自己的 Codex / ChatGPT 权限完成
+- 用户在界面中选择人物、填写市场背景、仓位、标的与问题
+- 产品把问题交给该人物自己的专属线程，并尽量延续上下文
 
-- Project Gutenberg 的 *Reminiscences of a Stock Operator*
-- Open Library 的 *How to Trade in Stocks* 各版页
-- Open Library / Internet Archive 的 *Studies in Tape Reading*
-- Wikimedia Commons 的 Jesse Livermore 图片页
-- TIME 的历史文章入口
-- Library of Congress / Chronicling America 的相关页
-- Google Books 的多个书目和预览页
+这意味着它既保留了产品体验，也保留了 Codex 的推理能力与连续对话能力。
 
-## 重要说明
+## 面向用户的默认使用方式
 
-- 请遵守目标网站的使用条款、版权和 robots 规则。
-- 对需要登录、借阅、付费、人工验证的网站，系统会尽量保留线索，但不会绕过权限控制。
-- 这套系统不是“盗链器”，而是“研究资料采集与证据保留系统”。
+公开发布与安装，请优先查看这些文档：
+- `docs/investor_council_release_quickstart_cn.md`
+- `docs/investor_council_release_notes_cn.md`
+- `docs/investor_council_github_releases.md`
 
+普通用户默认路径：
+- GitHub Releases -> `投资大师智能团-Setup.exe`
+
+高级用户备用路径：
+- `Portable.zip`
+- `Codex 一句 prompt` 自举
+
+## 当前仓库包含什么
+
+这个仓库不只是产品壳，还包含产品背后的研究与生成能力：
+- `investor_council_shell/`
+  - 面向最终用户的桌面壳应用
+- `codex-skills/investor-council/`
+  - 投资大师智能团的 Codex 原生 skill 与人物包
+- `persona-skill-factory-codex/`
+  - 用工作流持续扩展新人物的工厂层
+- `src/`、`scripts/`、`projects/`
+  - 资料采集、资料整理、研究资产沉淀与复跑能力
+
+换句话说，这里既有产品，也有让产品持续进化的人物蒸馏引擎。
+
+## 合规边界
+
+本产品用于教育、研究和信息整理，不构成投资建议、收益承诺、招揽或代客理财服务。
+
+它更适合被理解为：
+- 思维训练工具
+- 研究辅助工具
+- 认知成长产品
+
+而不是“保证赚钱的投资软件”。
