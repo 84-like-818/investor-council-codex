@@ -14,3 +14,8 @@ dist/
 tmp/
 *.log
 tmp_utf8_probe.txt
+
+# keep locally, do not publish shadow-library sourced files
+jesse-livermore/*z-library.sk*
+jesse-livermore/*1lib.sk*
+jesse-livermore/*z-lib.sk*
