@@ -4,7 +4,7 @@ import unittest
 from unittest.mock import patch
 
 from investor_council_shell.app import InvestorCouncilBackend
-from investor_council_shell.codex_bridge import perform_handoff
+from investor_council_shell.codex_bridge import codex_restart_required, perform_handoff
 
 
 class HandoffResilienceTests(unittest.TestCase):
@@ -27,6 +27,10 @@ class HandoffResilienceTests(unittest.TestCase):
         self.assertTrue(result['ok'])
         self.assertEqual(result['mode'], 'auto_sent')
         self.assertEqual(result['thread_action'], 'existing_thread')
+
+    def test_codex_restart_required_after_skill_sync(self) -> None:
+        with patch('investor_council_shell.codex_bridge.load_status', return_value={'skill_synced_at': '2026-04-09T20:25:18'}),              patch('investor_council_shell.codex_bridge._codex_process_info', return_value={'StartTime': '2026-04-08T20:55:19'}):
+            self.assertTrue(codex_restart_required())
 
     def test_backend_handoff_returns_safe_payload_when_bridge_raises(self) -> None:
         backend = InvestorCouncilBackend()

@@ -1,5 +1,6 @@
 ﻿from __future__ import annotations
 
+import hashlib
 import json
 import os
 import shutil
@@ -50,6 +51,24 @@ def _write_json(path: Path, payload: dict[str, Any]) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+def _read_json(path: Path) -> dict[str, Any]:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        return payload if isinstance(payload, dict) else {}
+    except Exception:
+        return {}
+
+
+def _tree_fingerprint(path: Path) -> str:
+    if not path.exists():
+        return ""
+    digest = hashlib.sha256()
+    for file_path in sorted(item for item in path.rglob("*") if item.is_file()):
+        digest.update(str(file_path.relative_to(path)).replace('\\', '/').encode('utf-8'))
+        digest.update(file_path.read_bytes())
+    return digest.hexdigest()
+
+
 def _copytree_incremental(source: Path, destination: Path) -> None:
     if not source.exists():
         raise FileNotFoundError(f"Missing source path: {source}")
@@ -97,13 +116,39 @@ def sync_skill_to_user() -> dict[str, Any]:
     source = skill_source()
     destination = skill_install_path()
     if not source.exists():
-        return {"ok": False, "message": "未找到总入口 skill。", "path": str(source)}
+        return {"ok": False, "message": "?????? skill?", "path": str(source), "changed": False, "fingerprint": ""}
+
+    source_fingerprint = _tree_fingerprint(source)
+    destination_fingerprint = _tree_fingerprint(destination)
+    changed = source_fingerprint != destination_fingerprint
+
     try:
         destination.parent.mkdir(parents=True, exist_ok=True)
-        _copytree_incremental(source, destination)
-        return {"ok": True, "message": "总入口 skill 已同步。", "path": str(destination)}
+        if changed:
+            _copytree_incremental(source, destination)
+            destination_fingerprint = _tree_fingerprint(destination)
+            return {
+                "ok": True,
+                "message": "??? skill ???????",
+                "path": str(destination),
+                "changed": True,
+                "fingerprint": destination_fingerprint,
+            }
+        return {
+            "ok": True,
+            "message": "??? skill ???????",
+            "path": str(destination),
+            "changed": False,
+            "fingerprint": destination_fingerprint,
+        }
     except Exception as exc:
-        return {"ok": False, "message": f"总入口 skill 同步失败：{exc}", "path": str(destination)}
+        return {
+            "ok": False,
+            "message": f"??? skill ?????{exc}",
+            "path": str(destination),
+            "changed": False,
+            "fingerprint": destination_fingerprint,
+        }
 
 
 def _shortcut_target() -> tuple[str, str, str]:
@@ -151,6 +196,7 @@ def ensure_desktop_shortcut(force: bool = False) -> dict[str, Any]:
 
 
 def save_runtime_status(extra: dict[str, Any] | None = None) -> dict[str, Any]:
+    previous = _read_json(status_file())
     payload = {
         "bundle_display_name": APP_NAME,
         "app_version": APP_VERSION,
@@ -159,6 +205,9 @@ def save_runtime_status(extra: dict[str, Any] | None = None) -> dict[str, Any]:
         "python_executable": sys.executable,
         "python_version": ".".join(map(str, sys.version_info[:3])),
         "updated_at": __import__("datetime").datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
+        "skill_synced_at": previous.get("skill_synced_at", ""),
+        "skill_fingerprint": previous.get("skill_fingerprint", ""),
+        "skill_sync_changed": bool(previous.get("skill_sync_changed", False)),
     }
     if extra:
         payload.update(extra)
@@ -167,17 +216,28 @@ def save_runtime_status(extra: dict[str, Any] | None = None) -> dict[str, Any]:
 
 
 def prepare_runtime(create_shortcut: bool = False, force_shortcut: bool = False) -> dict[str, Any]:
+    previous_status = _read_json(status_file())
     registry_result = sync_registry_mirror()
     skill_result = sync_skill_to_user()
     product_home_result = product_home_health()
-    shortcut_result = {"ok": True, "message": "本次未请求创建桌面入口。", "path": str(desktop_shortcut_path())}
+    shortcut_result = {"ok": True, "message": "????????????", "path": str(desktop_shortcut_path())}
     if create_shortcut:
         shortcut_result = ensure_desktop_shortcut(force=force_shortcut)
+
+    skill_synced_at = str(previous_status.get("skill_synced_at") or "")
+    skill_fingerprint = str(previous_status.get("skill_fingerprint") or "")
+    if skill_result.get("ok") and skill_result.get("fingerprint"):
+        skill_fingerprint = str(skill_result.get("fingerprint") or "")
+    if skill_result.get("ok") and skill_result.get("changed"):
+        skill_synced_at = __import__("datetime").datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
 
     save_runtime_status(
         {
             "registry_sync_ok": registry_result["ok"],
             "skill_sync_ok": skill_result["ok"],
+            "skill_sync_changed": bool(skill_result.get("changed")),
+            "skill_fingerprint": skill_fingerprint,
+            "skill_synced_at": skill_synced_at,
             "product_home": product_home_result["path"],
             "desktop_shortcut_ok": shortcut_result["ok"],
         }

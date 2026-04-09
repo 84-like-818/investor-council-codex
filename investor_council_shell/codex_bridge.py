@@ -1,5 +1,6 @@
 ﻿from __future__ import annotations
 
+from datetime import datetime
 import json
 import os
 import shutil
@@ -135,13 +136,41 @@ def _workspace_name_candidates() -> list[str]:
     return candidates
 
 
-def codex_running() -> bool:
+def _codex_process_info() -> dict[str, Any] | None:
     payload = _powershell_json(
         "@(Get-Process -Name Codex -ErrorAction SilentlyContinue | "
         "Where-Object { $_.MainWindowTitle -ne '' } | "
-        "Select-Object -First 1 -Property Id, MainWindowTitle) | ConvertTo-Json -Compress"
+        "Sort-Object StartTime -Descending | "
+        "Select-Object -First 1 -Property Id, MainWindowTitle, StartTime) | ConvertTo-Json -Compress"
     )
-    return bool(payload)
+    return payload if isinstance(payload, dict) else None
+
+
+def codex_running() -> bool:
+    return bool(_codex_process_info())
+
+
+def codex_restart_required() -> bool:
+    status = load_status()
+    skill_synced_at = str(status.get("skill_synced_at") or "").strip()
+    if not skill_synced_at:
+        return False
+
+    process_info = _codex_process_info()
+    if not process_info:
+        return False
+
+    start_raw = str(process_info.get("StartTime") or "").strip()
+    if not start_raw:
+        return False
+
+    try:
+        codex_started_at = datetime.fromisoformat(start_raw.replace("Z", "+00:00"))
+        skill_ready_at = datetime.fromisoformat(skill_synced_at)
+    except Exception:
+        return False
+
+    return codex_started_at <= skill_ready_at
 
 
 def _control_name(control: Any) -> str:
@@ -873,6 +902,7 @@ def runtime_status() -> dict[str, Any]:
     skill_ready = bool(check_map["skill_sync"]["ok"])
     product_home_ok = bool(check_map["product_home"]["ok"])
     webview_ready = bool(check_map["webview"]["ok"])
+    restart_required = codex_restart_required()
 
     blocking_message = ""
     blocking_action = ""
@@ -896,6 +926,7 @@ def runtime_status() -> dict[str, Any]:
         "codex_installed": codex_installed,
         "codex_logged_in": logged_in,
         "codex_running": codex_running(),
+        "codex_restart_required": restart_required,
         "skill_installed": skill_ready,
         "auto_injection_available": auto_injection_available(),
         "codex_launch_ready": bool(launch_info),
@@ -909,7 +940,7 @@ def runtime_status() -> dict[str, Any]:
         "blocking": bool(blocking_message),
         "blocking_message": blocking_message,
         "blocking_action": blocking_action,
-        "ready_for_handoff": bool(codex_installed and logged_in and skill_ready and product_home_ok and webview_ready),
+        "ready_for_handoff": bool(codex_installed and logged_in and skill_ready and product_home_ok and webview_ready and not restart_required),
         "repair_available": True,
         "checks": checks,
     }
