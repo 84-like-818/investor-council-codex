@@ -1,0 +1,64 @@
+<svg width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Warren Buffett">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="36" x2="416" y2="444" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9F4EC"/>
+      <stop offset="1" stop-color="#D8C8B2"/>
+    </linearGradient>
+    <linearGradient id="medal" x1="108" y1="88" x2="372" y2="392" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3E6D3"/>
+      <stop offset="1" stop-color="#B89C7C"/>
+    </linearGradient>
+    <linearGradient id="coat" x1="240" y1="280" x2="240" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2C333A"/>
+      <stop offset="1" stop-color="#171C22"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="240" y1="290" x2="240" y2="406" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F4EC"/>
+      <stop offset="1" stop-color="#E6DED3"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="240" y1="118" x2="240" y2="286" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E6CEBC"/>
+      <stop offset="1" stop-color="#D2B29D"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="240" y1="104" x2="240" y2="192" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8E2D8"/>
+      <stop offset="1" stop-color="#B7A792"/>
+    </linearGradient>
+    <filter id="shadow" x="36" y="42" width="408" height="408" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#4F3B28" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="480" height="480" rx="96" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <circle cx="240" cy="240" r="164" fill="url(#medal)"/>
+    <circle cx="240" cy="240" r="152" stroke="#FFFFFF" stroke-opacity="0.44" stroke-width="2"/>
+  </g>
+
+  <path d="M142 404C154 356 182 327 212 315C220 312 230 310 240 310C250 310 260 312 268 315C298 327 326 356 338 404" fill="url(#coat)"/>
+  <path d="M197 404C202 363 218 336 240 336C262 336 278 363 283 404" fill="url(#shirt)"/>
+  <path d="M220 309H260L251 340H229L220 309Z" fill="#D74B3E"/>
+  <path d="M240 104C207 104 182 132 182 176V206C182 255 206 292 240 292C274 292 298 255 298 206V176C298 132 273 104 240 104Z" fill="url(#skin)"/>
+  <path d="M194 145C198 119 216 103 243 103C270 103 286 119 291 143C294 158 290 158 285 153C275 144 260 140 243 140C225 140 211 145 198 153C193 156 191 154 191 150C191 148 192 146 194 145Z" fill="url(#hair)"/>
+  <path d="M184 177C191 151 212 128 243 128C273 128 292 149 297 178C301 199 296 204 291 196C282 181 265 173 243 173C221 173 204 181 189 197C184 202 180 201 179 193C179 188 180 182 184 177Z" fill="url(#hair)"/>
+
+  <path d="M201 201C209 195 221 192 232 194" stroke="#7B6056" stroke-width="3" stroke-linecap="round"/>
+  <path d="M279 201C271 195 259 192 248 194" stroke="#7B6056" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="218" cy="210" rx="7" ry="5" fill="#2A2220"/>
+  <ellipse cx="262" cy="210" rx="7" ry="5" fill="#2A2220"/>
+  <path d="M239 214C236 226 234 234 234 241C234 246 238 248 243 247" stroke="#B68870" stroke-width="3" stroke-linecap="round"/>
+  <path d="M223 253C230 260 249 260 257 252" stroke="#7D544A" stroke-width="4" stroke-linecap="round"/>
+
+  <ellipse cx="220" cy="209" rx="25" ry="19" stroke="#6C635C" stroke-width="4"/>
+  <ellipse cx="260" cy="209" rx="25" ry="19" stroke="#6C635C" stroke-width="4"/>
+  <path d="M245 209H235" stroke="#6C635C" stroke-width="4" stroke-linecap="round"/>
+  <path d="M195 209H187" stroke="#6C635C" stroke-width="4" stroke-linecap="round"/>
+  <path d="M293 209H285" stroke="#6C635C" stroke-width="4" stroke-linecap="round"/>
+
+  <path d="M212 279C220 287 229 291 240 291C251 291 260 287 268 279L262 314C256 321 249 325 240 325C231 325 224 321 218 314L212 279Z" fill="#CFAF97"/>
+  <path d="M176 404C184 356 205 329 236 325L226 404H176Z" fill="#1F252B"/>
+  <path d="M304 404C296 356 275 329 244 325L254 404H304Z" fill="#1F252B"/>
+  <path d="M180 404C194 356 216 336 240 336C264 336 286 356 300 404" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="2"/>
+
+  <circle cx="240" cy="240" r="164" stroke="#B79472" stroke-width="6" stroke-opacity="0.56"/>
+</svg>

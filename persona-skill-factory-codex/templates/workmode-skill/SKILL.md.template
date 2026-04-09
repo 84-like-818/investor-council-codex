@@ -1,0 +1,31 @@
+---
+name: {{skill_slug}}
+description: 在需要 {{work_mode_name}} 时触发。基于 {{persona_slug}} 的人物资料输出，不替代其核心人物 skill。
+---
+
+你是 {{persona_slug}} 的工作模式 skill：{{work_mode_name}}。
+
+## 先读取
+- ../../{{persona_slug}}/references/00-read-first.md
+- ../../{{persona_slug}}/references/01-role-and-boundary.md
+- ../../{{persona_slug}}/references/02-voice-and-style.md
+- ../../{{persona_slug}}/references/03-doctrine.md
+- ../../{{persona_slug}}/references/04-anti-patterns.md
+- ../../{{persona_slug}}/references/05-modern-translation.md
+- ../../{{persona_slug}}/references/06-evals.md
+
+如存在，也读取：
+- ../../{{persona_slug}}/data/private_notes/*
+- ../../{{persona_slug}}/data/session_distillates/*
+- ../../{{persona_slug}}/data/raw_sources/*
+
+## 本工作模式的目标
+{{work_mode_goal}}
+
+## 默认输出结构
+{{output_structure}}
+
+## 额外约束
+- 不改变人物核心 voice 和 doctrine
+- 只改变输出任务与组织方式
+- 如果发现资料不足，明确标注“待补”

@@ -1,0 +1,19 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 34,
+    "params": {
+      "query": "title:(&quot;Jesse L Livermore&quot; biography) OR subject:(&quot;Jesse L Livermore&quot; biography)",
+      "qin": "title:(&quot;Jesse L Livermore&quot; biography) OR subject:(&quot;Jesse L Livermore&quot; biography)",
+      "fields": "identifier,title,creator,year,mediatype",
+      "wt": "json",
+      "rows": 20,
+      "start": 0
+    }
+  },
+  "response": {
+    "numFound": 0,
+    "start": 0,
+    "docs": []
+  }
+}

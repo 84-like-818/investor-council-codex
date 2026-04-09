@@ -1,0 +1,16 @@
+{
+  "name": "{{plugin_name}}",
+  "version": "0.1.0",
+  "description": "{{display_name}} assistant plugin",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "{{display_name}}",
+    "shortDescription": "{{role}}",
+    "composerIcon": "./assets/avatar-256.png",
+    "logo": "./assets/avatar-256.png",
+    "screenshots": []
+  },
+  "publisher": {
+    "name": "local"
+  }
+}

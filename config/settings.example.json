@@ -1,0 +1,12 @@
+{
+  "user_agent": "LivermoreHarvester/1.0 (+research use; polite collector)",
+  "timeout_seconds": 25,
+  "max_download_bytes": 52428800,
+  "max_candidate_attempts": 8,
+  "html_content_threshold": 5000,
+  "sleep_seconds_between_requests": 1.0,
+  "cookies_json": "",
+  "extra_headers": {
+    "Accept-Language": "en-US,en;q=0.9"
+  }
+}

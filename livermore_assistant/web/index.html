@@ -1,0 +1,87 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>利弗莫尔市场助手</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero-card">
+        <div class="hero-top">
+          <div class="portrait-wrap">
+            <img id="avatar" class="portrait" alt="利弗莫尔头像">
+          </div>
+          <div class="hero-copy">
+            <p class="eyebrow">Livermore Market Desk</p>
+            <h1 id="brandTitle">利弗莫尔市场助手</h1>
+            <p class="summary" id="snapshotText">正在加载产品信息...</p>
+          </div>
+        </div>
+
+        <div class="pill-row" id="capabilityTags"></div>
+
+        <section class="market-panel">
+          <header class="panel-head">
+            <div>
+              <p class="eyebrow eyebrow-small">实时行情</p>
+              <h2>市场快照</h2>
+            </div>
+            <div class="panel-actions">
+              <span id="marketUpdated" class="market-updated">等待刷新</span>
+              <button id="refreshMarketBtn" class="ghost-btn" type="button">刷新</button>
+            </div>
+          </header>
+          <p id="marketStatus" class="market-status">正在连接实时 A 股行情源...</p>
+          <div id="marketGrid" class="market-grid"></div>
+        </section>
+
+        <section class="tip-panel">
+          <h2>怎么提问更有效</h2>
+          <ul id="starterList" class="starter-list"></ul>
+        </section>
+
+        <p class="disclaimer" id="disclaimerText"></p>
+      </section>
+
+      <section class="chat-card">
+        <header class="chat-head">
+          <div>
+            <p class="eyebrow">中文陪练</p>
+            <h2>像一位老交易员一样和你讨论市场</h2>
+          </div>
+          <p class="hint">告诉我市场结构、你的持仓、以及你最纠结的决定。</p>
+        </header>
+
+        <label class="label" for="marketNotes">当前市场背景</label>
+        <textarea
+          id="marketNotes"
+          class="market-notes"
+          placeholder="例如：上证高位震荡，AI 龙头分化，量能收缩；我有 30% 仓位，正在判断该继续追强还是先等回调确认。"
+        ></textarea>
+
+        <div id="messages" class="messages"></div>
+
+        <form id="chatForm" class="composer">
+          <textarea
+            id="questionInput"
+            class="question-input"
+            placeholder="例如：今天 A 股这种盘面，我昨天买了光电股份，明天应该偏向持有、减仓还是等确认？"
+            required
+          ></textarea>
+          <button id="sendBtn" class="send-btn" type="submit">开始判断</button>
+        </form>
+      </section>
+    </main>
+
+    <template id="messageTemplate">
+      <article class="message">
+        <div class="message-role"></div>
+        <div class="message-body"></div>
+      </article>
+    </template>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+interface:
+  display_name: "利弗莫尔市场助手"
+  short_description: "用利弗莫尔框架读市场、管仓位、承接多轮追问。"
+  icon_small: "./assets/livermore-icon.svg"
+  icon_large: "./assets/livermore-icon.svg"
+  brand_color: "#103C36"
+  default_prompt: "Use $livermore-market-assistant to read the market in Chinese, remember my holdings, and answer like Jesse Livermore."
+
+policy:
+  allow_implicit_invocation: false

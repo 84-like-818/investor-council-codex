@@ -1,0 +1,10 @@
+﻿interface:
+  display_name: "投资大师智能团"
+  short_description: "先选投资人物，再进入对应的市场与投资助手。"
+  icon_small: "./assets/investor-council-brand.svg"
+  icon_large: "./assets/investor-council-brand.svg"
+  brand_color: "#17433A"
+  default_prompt: "Use $investor-council。请先用中文让我选择一个投资人物，再进入对应助手。"
+
+policy:
+  allow_implicit_invocation: false

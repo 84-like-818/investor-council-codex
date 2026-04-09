@@ -1,0 +1,27 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 16,
+    "params": {
+      "query": "title:&quot;Boy Plunger&quot; OR subject:&quot;Boy Plunger&quot;",
+      "qin": "title:(&quot;Boy Plunger&quot;) OR subject:(&quot;Boy Plunger&quot;)",
+      "fields": "identifier,title,creator,year,mediatype",
+      "wt": "json",
+      "rows": 20,
+      "start": 0
+    }
+  },
+  "response": {
+    "numFound": 1,
+    "start": 0,
+    "docs": [
+      {
+        "creator": "Dead Men Walking Podcast",
+        "identifier": "ckl8esjpt2yusr4uvsgh3ecz54xuhse7bvna6qvl",
+        "mediatype": "audio",
+        "title": "Book Suggestions: Jessie Livermore Boy Plunger & 100 Most Important Christian Events",
+        "year": 2022
+      }
+    ]
+  }
+}

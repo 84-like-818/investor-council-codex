@@ -1,0 +1,144 @@
+{
+  "bundle_name": "investor-council-cn",
+  "bundle_display_name": "投资大师智能团",
+  "entry_skill_name": "investor-council",
+  "ui_strategy": "single_entry_skill",
+  "default_mentor": "livermore",
+  "bootstrap_prompt": "Use $investor-council。请先用中文让我选择一个投资人物，再进入对应助手。",
+  "requires": {
+    "codex_access": true,
+    "python": "3.11+",
+    "network": true,
+    "platform": "windows"
+  },
+  "mentors": [
+    {
+      "id": "livermore",
+      "display_name_zh": "利弗莫尔",
+      "display_name_en": "Jesse Livermore",
+      "aliases": [
+        "利弗莫尔",
+        "杰西·利弗莫尔",
+        "jesse livermore",
+        "livermore"
+      ],
+      "status": "ready",
+      "selection_label": "趋势交易 / 仓位管理 / 盘面阅读",
+      "mentor_pack_path": "codex-skills/investor-council/mentors/livermore",
+      "avatar": "codex-skills/investor-council/mentors/livermore/avatar.svg",
+      "memory_namespace": "livermore"
+    },
+    {
+      "id": "buffett",
+      "display_name_zh": "巴菲特",
+      "display_name_en": "Warren Buffett",
+      "aliases": [
+        "巴菲特",
+        "沃伦·巴菲特",
+        "warren buffett",
+        "buffett"
+      ],
+      "status": "ready",
+      "selection_label": "企业质量 / 护城河 / 资本配置 / 长期价值",
+      "mentor_pack_path": "codex-skills/investor-council/mentors/buffett",
+      "avatar": "codex-skills/investor-council/mentors/buffett/avatar.svg",
+      "memory_namespace": "buffett"
+    },
+    {
+      "id": "munger",
+      "display_name_zh": "芒格",
+      "display_name_en": "Charlie Munger",
+      "aliases": [
+        "芒格",
+        "查理·芒格",
+        "charlie munger",
+        "munger"
+      ],
+      "status": "planned",
+      "selection_label": "多元思维模型 / 逆向思考",
+      "mentor_pack_path": "codex-skills/investor-council/mentors/munger",
+      "avatar": "codex-skills/investor-council/mentors/munger/avatar.svg",
+      "memory_namespace": "munger"
+    },
+    {
+      "id": "soros",
+      "display_name_zh": "索罗斯",
+      "display_name_en": "George Soros",
+      "aliases": [
+        "索罗斯",
+        "乔治·索罗斯",
+        "george soros",
+        "soros"
+      ],
+      "status": "planned",
+      "selection_label": "反身性 / 宏观驱动 / 交易时机",
+      "mentor_pack_path": "codex-skills/investor-council/mentors/soros",
+      "avatar": "codex-skills/investor-council/mentors/soros/avatar.svg",
+      "memory_namespace": "soros"
+    },
+    {
+      "id": "peter-lynch",
+      "display_name_zh": "彼得·林奇",
+      "display_name_en": "Peter Lynch",
+      "aliases": [
+        "彼得林奇",
+        "彼得·林奇",
+        "peter lynch",
+        "lynch"
+      ],
+      "status": "planned",
+      "selection_label": "成长股 / 生活线索 / 公司调研",
+      "mentor_pack_path": "codex-skills/investor-council/mentors/peter-lynch",
+      "avatar": "codex-skills/investor-council/mentors/peter-lynch/avatar.svg",
+      "memory_namespace": "peter-lynch"
+    },
+    {
+      "id": "dalio",
+      "display_name_zh": "达利欧",
+      "display_name_en": "Ray Dalio",
+      "aliases": [
+        "达利欧",
+        "雷·达利欧",
+        "ray dalio",
+        "dalio"
+      ],
+      "status": "planned",
+      "selection_label": "宏观周期 / 资产配置 / 风险平衡",
+      "mentor_pack_path": "codex-skills/investor-council/mentors/dalio",
+      "avatar": "codex-skills/investor-council/mentors/dalio/avatar.svg",
+      "memory_namespace": "dalio"
+    },
+    {
+      "id": "simons",
+      "display_name_zh": "西蒙斯",
+      "display_name_en": "Jim Simons",
+      "aliases": [
+        "西蒙斯",
+        "吉姆·西蒙斯",
+        "jim simons",
+        "simons"
+      ],
+      "status": "planned",
+      "selection_label": "数据 / 因子 / 统计规律",
+      "mentor_pack_path": "codex-skills/investor-council/mentors/simons",
+      "avatar": "codex-skills/investor-council/mentors/simons/avatar.svg",
+      "memory_namespace": "simons"
+    },
+    {
+      "id": "graham",
+      "display_name_zh": "格雷厄姆",
+      "display_name_en": "Benjamin Graham",
+      "aliases": [
+        "格雷厄姆",
+        "本杰明·格雷厄姆",
+        "benjamin graham",
+        "graham"
+      ],
+      "status": "planned",
+      "selection_label": "安全边际 / 价值评估 / 防守型框架",
+      "mentor_pack_path": "codex-skills/investor-council/mentors/graham",
+      "avatar": "codex-skills/investor-council/mentors/graham/avatar.svg",
+      "memory_namespace": "graham"
+    }
+  ]
+}

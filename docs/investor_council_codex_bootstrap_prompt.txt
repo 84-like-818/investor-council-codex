@@ -1,0 +1,1 @@
+﻿请在当前工作区完成“投资大师智能团”的安装和首启：运行 `scripts\\bootstrap_investor_council_from_codex.ps1`，自动检查 Codex、同步 skill、创建桌面图标并启动产品；如果 Codex 未安装或未登录，就停在清晰的中文阻塞提示；不要删除仓库外任何非产品文件。

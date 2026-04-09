@@ -1,0 +1,424 @@
+{
+  "numFound": 50,
+  "start": 0,
+  "numFoundExact": true,
+  "num_found": 50,
+  "documentation_url": "https://openlibrary.org/dev/docs/api/search",
+  "q": "J. L. Livermore",
+  "offset": null,
+  "docs": [
+    {
+      "author_key": [
+        "OL578783A",
+        "OL7982930A",
+        "OL8131845A",
+        "OL11295504A",
+        "OL3126734A",
+        "OL13119308A"
+      ],
+      "author_name": [
+        "Edwin Lefèvre",
+        "Price Tim",
+        "Roger Lowenstein",
+        "Richard Richard Wyckoff",
+        "Richard D. Wyckoff",
+        "Richard D. Wyckoff"
+      ],
+      "cover_edition_key": "OL1087786M",
+      "cover_i": 300533,
+      "ebook_access": "printdisabled",
+      "edition_count": 81,
+      "first_publish_year": 1923,
+      "has_fulltext": true,
+      "ia": [
+        "reminiscencesofs0000lefe_l7g7",
+        "reminiscencesofs00lefe",
+        "reminiscencesofs0000lefe",
+        "reminiscencessto00lefe_488"
+      ],
+      "ia_collection": [
+        "americana",
+        "binghamton-ol",
+        "cua-ol",
+        "delawarecountydistrictlibrary",
+        "hamiltonpubliclibrary-ol",
+        "internetarchivebooks",
+        "johnshopkins-ol",
+        "library_of_atlantis",
+        "printdisabled",
+        "riceuniversity-ol",
+        "the-claremont-colleges-ol",
+        "uni-ol",
+        "universityofoklahoma-ol",
+        "universityofthewest-ol"
+      ],
+      "key": "/works/OL3472215W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Reminiscences of a stock operator"
+    },
+    {
+      "author_key": [
+        "OL12011715A"
+      ],
+      "author_name": [
+        "L. J. Livermore"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1863,
+      "has_fulltext": false,
+      "key": "/works/OL44002183W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "What we have to be thankful for"
+    },
+    {
+      "author_key": [
+        "OL12011715A"
+      ],
+      "author_name": [
+        "L. J. Livermore"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1864,
+      "has_fulltext": false,
+      "key": "/works/OL33131600W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Perserverance in the war, the interest and duty of the nation"
+    },
+    {
+      "author_key": [
+        "OL12011715A"
+      ],
+      "author_name": [
+        "L. J. Livermore"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1884,
+      "has_fulltext": false,
+      "key": "/works/OL39506959W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Baptism"
+    },
+    {
+      "author_key": [
+        "OL12011715A"
+      ],
+      "author_name": [
+        "L. J. Livermore"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1852,
+      "has_fulltext": false,
+      "key": "/works/OL43780661W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "The increase of immorality"
+    },
+    {
+      "author_key": [
+        "OL5335111A"
+      ],
+      "author_name": [
+        "J. T. Rambo"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1978,
+      "has_fulltext": false,
+      "key": "/works/OL12236543W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "User's manual for the Livermore economic modeling system"
+    },
+    {
+      "author_key": [
+        "OL4733375A"
+      ],
+      "author_name": [
+        "J. T Rambo"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1978,
+      "has_fulltext": false,
+      "key": "/works/OL11284060W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "User's manual for the Livermore economic modeling system"
+    },
+    {
+      "author_key": [
+        "OL4823591A"
+      ],
+      "author_name": [
+        "Lawrence Livermore Laboratory."
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 4,
+      "first_publish_year": 1978,
+      "has_fulltext": false,
+      "key": "/works/OL11461262W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Precision machine-tool program"
+    },
+    {
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1893,
+      "has_fulltext": false,
+      "key": "/works/OL18716664M",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Memorial of A.A. Livermore, D.D."
+    },
+    {
+      "author_key": [
+        "OL13378798A"
+      ],
+      "author_name": [
+        "Henry H. Barber"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1893,
+      "has_fulltext": false,
+      "key": "/works/OL37151180W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Memorial of A.A. Livermore, D.D."
+    },
+    {
+      "author_key": [
+        "OL4823591A"
+      ],
+      "author_name": [
+        "Lawrence Livermore Laboratory."
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 4,
+      "first_publish_year": 1978,
+      "has_fulltext": false,
+      "key": "/works/OL11461272W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Liquefied energy fuels spill effects program"
+    },
+    {
+      "author_key": [
+        "OL4484125A"
+      ],
+      "author_name": [
+        "Leonard Jarvis Livermore"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "has_fulltext": false,
+      "key": "/works/OL20968535W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Baptism"
+    },
+    {
+      "author_key": [
+        "OL543338A",
+        "OL445619A"
+      ],
+      "author_name": [
+        "Rothman, David J.",
+        "Sheila M. Rothman"
+      ],
+      "cover_edition_key": "OL2389839M",
+      "cover_i": 4731907,
+      "ebook_access": "no_ebook",
+      "edition_count": 2,
+      "first_publish_year": 1987,
+      "has_fulltext": false,
+      "key": "/works/OL18286105W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Divorce"
+    },
+    {
+      "author_key": [
+        "OL1913132A"
+      ],
+      "author_name": [
+        "Howard J. Hausman"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1978,
+      "has_fulltext": false,
+      "key": "/works/OL6911733W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Supply and demand for high schoolscience teachers in l985"
+    },
+    {
+      "author_key": [
+        "OL38880A"
+      ],
+      "author_name": [
+        "Edwin Bryant"
+      ],
+      "cover_edition_key": "OL24258521M",
+      "cover_i": 6406442,
+      "ebook_access": "public",
+      "edition_count": 28,
+      "first_publish_year": 1848,
+      "has_fulltext": true,
+      "ia": [
+        "whatisawincalifoin00brya",
+        "whatisawincalifo0000brya"
+      ],
+      "ia_collection": [
+        "americana",
+        "internetarchivebooks",
+        "printdisabled",
+        "university_pittsburgh",
+        "zamorano80"
+      ],
+      "key": "/works/OL546379W",
+      "language": [
+        "eng"
+      ],
+      "lending_edition_s": "OL6190207M",
+      "lending_identifier_s": "whatisawincalifoin00brya",
+      "public_scan_b": true,
+      "title": "What I Saw In California"
+    },
+    {
+      "author_key": [
+        "OL2273011A"
+      ],
+      "author_name": [
+        "J. L. Olsen"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1953,
+      "has_fulltext": false,
+      "key": "/works/OL7486471W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "An automatic count and control system for a beta-ray spectrometer"
+    },
+    {
+      "author_key": [
+        "OL4477958A"
+      ],
+      "author_name": [
+        "Harvard University"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1832,
+      "has_fulltext": false,
+      "key": "/works/OL39499911W",
+      "public_scan_b": false,
+      "title": "General information about Harvard commencement and exhibitions in academic year 1832/1833"
+    },
+    {
+      "author_key": [
+        "OL2424488A"
+      ],
+      "author_name": [
+        "L. Lermont"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 2,
+      "first_publish_year": 1853,
+      "has_fulltext": false,
+      "key": "/works/OL32090287W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Sunshine through the clouds, or, Justina rewarded"
+    },
+    {
+      "author_key": [
+        "OL2465498A"
+      ],
+      "author_name": [
+        "John O. Rasmussen"
+      ],
+      "cover_edition_key": "OL6801654M",
+      "cover_i": 4531614,
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 2000,
+      "has_fulltext": false,
+      "key": "/works/OL7800301W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Ancestors of Mary Herron (1890-1981)"
+    },
+    {
+      "cover_edition_key": "OL22132329M",
+      "cover_i": 7143969,
+      "ebook_access": "public",
+      "edition_count": 2,
+      "first_publish_year": 1986,
+      "has_fulltext": true,
+      "ia": [
+        "cihm_60789"
+      ],
+      "ia_collection": [
+        "additional_collections",
+        "microfilm",
+        "toronto",
+        "university_of_alberta_libraries",
+        "university_of_alberta_libraries_microfilm"
+      ],
+      "key": "/works/OL16684631W",
+      "language": [
+        "eng"
+      ],
+      "lending_edition_s": "OL22132329M",
+      "lending_identifier_s": "cihm_60789",
+      "public_scan_b": true,
+      "title": "The Wood patent safety gate for passenger car platforms"
+    }
+  ]
+}

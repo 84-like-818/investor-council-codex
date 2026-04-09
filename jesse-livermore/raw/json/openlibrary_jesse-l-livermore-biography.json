@@ -1,0 +1,80 @@
+{
+  "numFound": 3,
+  "start": 0,
+  "numFoundExact": true,
+  "num_found": 3,
+  "documentation_url": "https://openlibrary.org/dev/docs/api/search",
+  "q": "\"Jesse L Livermore\" biography",
+  "offset": null,
+  "docs": [
+    {
+      "author_key": [
+        "OL1512646A"
+      ],
+      "author_name": [
+        "Richard Smitten"
+      ],
+      "cover_edition_key": "OL6806303M",
+      "cover_i": 1676799,
+      "ebook_access": "borrowable",
+      "edition_count": 1,
+      "first_publish_year": 1999,
+      "has_fulltext": true,
+      "ia": [
+        "amazinglifeofjes00smit"
+      ],
+      "ia_collection": [
+        "inlibrary",
+        "internetarchivebooks",
+        "openlibrary-d-ol",
+        "printdisabled"
+      ],
+      "key": "/works/OL6023170W",
+      "language": [
+        "eng"
+      ],
+      "lending_edition_s": "OL6806303M",
+      "lending_identifier_s": "amazinglifeofjes00smit",
+      "public_scan_b": false,
+      "title": "The amazing life of Jesse Livermore, world's greatest stock trader"
+    },
+    {
+      "author_key": [
+        "OL1512646A"
+      ],
+      "author_name": [
+        "Richard Smitten"
+      ],
+      "cover_edition_key": "OL25545113M",
+      "cover_i": 9769427,
+      "ebook_access": "no_ebook",
+      "edition_count": 3,
+      "first_publish_year": 2001,
+      "has_fulltext": false,
+      "key": "/works/OL16940357W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Jesse Livermore"
+    },
+    {
+      "author_key": [
+        "OL2987618A"
+      ],
+      "author_name": [
+        "Tom Rubython"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 2014,
+      "has_fulltext": false,
+      "key": "/works/OL19743033W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Jesse Livermore"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Richard Bellman's Principle of Optimality, formulated in 1957, is the heart of dynamic programming, the mathematical discipline which studies the optimal solution of multi-period decision problems. In this paper, we look at the main trading principles of Jesse Livermore, the legendary stock operator whose method was published in 1923, from a Bellman point of view.

@@ -1,0 +1,51 @@
+{
+  "numFound": 2,
+  "start": 0,
+  "numFoundExact": true,
+  "num_found": 2,
+  "documentation_url": "https://openlibrary.org/dev/docs/api/search",
+  "q": "\"Boy Plunger\" biography",
+  "offset": null,
+  "docs": [
+    {
+      "author_key": [
+        "OL2987618A",
+        "OL8207041A"
+      ],
+      "author_name": [
+        "Tom Rubython",
+        "Paul Tudor Jones"
+      ],
+      "cover_edition_key": "OL39328133M",
+      "cover_i": 13800996,
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 2015,
+      "has_fulltext": false,
+      "key": "/works/OL28661964W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Jesse Livermore - Boy Plunger"
+    },
+    {
+      "author_key": [
+        "OL2987618A"
+      ],
+      "author_name": [
+        "Tom Rubython"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 2014,
+      "has_fulltext": false,
+      "key": "/works/OL19743033W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Jesse Livermore"
+    }
+  ]
+}

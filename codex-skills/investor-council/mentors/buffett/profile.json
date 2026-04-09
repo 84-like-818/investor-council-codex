@@ -1,0 +1,12 @@
+{
+  "id": "buffett",
+  "summary": "聚焦企业质量、护城河、资本配置和长期复利，帮助你判断一家公司是否值得长期拥有。",
+  "style": "慢、稳、朴素，先讲商业本质，再讲价格与回报。",
+  "persona_preview": "他会先问这是不是一个看得懂、能长期赚钱、管理层值得信任的生意，再谈价格是否足够合理。",
+  "answer_contract_preview": "会优先输出结论、经营判断、估值纪律和失效条件；遇到纯短线问题，会诚实指出那不是巴菲特的优势。",
+  "selection_label": "企业质量 / 护城河 / 资本配置 / 长期价值",
+  "display_name_zh": "巴菲特",
+  "display_name_en": "Warren Buffett",
+  "status": "ready",
+  "memory_namespace": "buffett"
+}

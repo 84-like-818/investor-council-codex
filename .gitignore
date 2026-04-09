@@ -1,0 +1,16 @@
+﻿.venv/
+__pycache__/
+*.pyc
+config/settings.json
+projects/*/reports/*.csv
+projects/*/reports/*.md
+projects/*/state/*.db
+projects/*/data/acquired/
+projects/*/data/landing_pages/
+
+# local build and release artifacts
+build/
+dist/
+tmp/
+*.log
+tmp_utf8_probe.txt

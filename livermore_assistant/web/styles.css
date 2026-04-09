@@ -1,0 +1,429 @@
+﻿:root {
+  --bg: #f3ede4;
+  --bg-deep: #ddd2c0;
+  --card: rgba(255, 250, 244, 0.88);
+  --card-strong: rgba(255, 247, 238, 0.96);
+  --ink: #171513;
+  --muted: #675d52;
+  --line: rgba(23, 21, 19, 0.1);
+  --accent: #103c36;
+  --accent-bright: #19554c;
+  --accent-soft: rgba(16, 60, 54, 0.08);
+  --warm: #9f5b30;
+  --warm-soft: rgba(159, 91, 48, 0.12);
+  --up: #155d4b;
+  --down: #8a3a33;
+  --shadow: 0 24px 60px rgba(39, 24, 12, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  color: var(--ink);
+  font-family: "Microsoft YaHei", "PingFang SC", "Source Han Sans SC", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(159, 91, 48, 0.18), transparent 22%),
+    radial-gradient(circle at bottom right, rgba(16, 60, 54, 0.18), transparent 24%),
+    linear-gradient(135deg, #f5efe7 0%, #eee4d7 48%, #e4d8c9 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(circle at center, black, transparent 88%);
+  pointer-events: none;
+}
+
+.shell {
+  position: relative;
+  width: min(1320px, calc(100vw - 32px));
+  margin: 22px auto;
+  display: grid;
+  grid-template-columns: 420px minmax(0, 1fr);
+  gap: 20px;
+}
+
+.hero-card,
+.chat-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.hero-card {
+  padding: 28px;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.hero-top {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.portrait-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 190px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.82), transparent 34%),
+    linear-gradient(180deg, rgba(16, 60, 54, 0.15), rgba(255, 255, 255, 0.35)),
+    linear-gradient(135deg, rgba(159, 91, 48, 0.16), rgba(255, 255, 255, 0));
+  overflow: hidden;
+}
+
+.portrait-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.portrait {
+  width: 176px;
+  height: 176px;
+  object-fit: contain;
+  filter: saturate(0.96) contrast(1.02);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--warm);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.eyebrow-small {
+  margin-bottom: 4px;
+}
+
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: "STZhongsong", "Songti SC", "Noto Serif SC", serif;
+  letter-spacing: 0.01em;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.summary,
+.hint,
+.label,
+.disclaimer,
+.market-status,
+.market-updated {
+  color: var(--muted);
+}
+
+.summary {
+  margin-top: 12px;
+  line-height: 1.7;
+}
+
+.pill-row {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pill {
+  padding: 9px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(16, 60, 54, 0.14);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.market-panel,
+.tip-panel {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 24px;
+  background: var(--card-strong);
+  border: 1px solid var(--line);
+}
+
+.panel-head,
+.chat-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.panel-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.ghost-btn {
+  border: 1px solid rgba(16, 60, 54, 0.18);
+  background: white;
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ghost-btn:disabled,
+.send-btn:disabled {
+  cursor: wait;
+  opacity: 0.78;
+}
+
+.market-status {
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.market-grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.market-card {
+  padding: 14px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(246, 240, 232, 0.92));
+  border: 1px solid var(--line);
+}
+
+.market-card.up {
+  box-shadow: inset 0 0 0 1px rgba(21, 93, 75, 0.08);
+}
+
+.market-card.down {
+  box-shadow: inset 0 0 0 1px rgba(138, 58, 51, 0.08);
+}
+
+.market-name {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.market-price {
+  margin-top: 8px;
+  font-family: "STZhongsong", "Songti SC", serif;
+  font-size: 28px;
+}
+
+.market-move {
+  margin-top: 6px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.market-card.up .market-move {
+  color: var(--up);
+}
+
+.market-card.down .market-move {
+  color: var(--down);
+}
+
+.starter-list {
+  margin-top: 12px;
+  padding-left: 18px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.disclaimer {
+  margin-top: 16px;
+  line-height: 1.7;
+  font-size: 13px;
+}
+
+.chat-card {
+  padding: 26px;
+  min-height: calc(100vh - 44px);
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: inline-block;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.market-notes,
+.question-input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 16px 18px;
+  font: inherit;
+  resize: vertical;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.market-notes {
+  min-height: 116px;
+  line-height: 1.7;
+}
+
+.messages {
+  flex: 1;
+  margin-top: 18px;
+  padding-right: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: auto;
+}
+
+.message {
+  padding: 18px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.message.assistant {
+  background: linear-gradient(180deg, rgba(16, 60, 54, 0.06), rgba(255, 255, 255, 0.9));
+}
+
+.message.user {
+  background: linear-gradient(180deg, rgba(159, 91, 48, 0.06), rgba(255, 255, 255, 0.92));
+}
+
+.message-role {
+  margin-bottom: 8px;
+  color: var(--warm);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.message-body {
+  white-space: pre-wrap;
+  line-height: 1.85;
+}
+
+.composer {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 156px;
+  gap: 12px;
+}
+
+.question-input {
+  min-height: 108px;
+  line-height: 1.75;
+}
+
+.send-btn {
+  border: 0;
+  border-radius: 22px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-bright));
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 18px 30px rgba(16, 60, 54, 0.24);
+}
+
+.send-btn:hover,
+.ghost-btn:hover {
+  filter: brightness(1.03);
+}
+
+@media (max-width: 1080px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    position: static;
+  }
+
+  .chat-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 680px) {
+  .shell {
+    width: min(100vw - 18px, 100%);
+    margin: 9px auto 18px;
+    gap: 12px;
+  }
+
+  .hero-card,
+  .chat-card {
+    border-radius: 24px;
+    padding: 18px;
+  }
+
+  .hero-top {
+    grid-template-columns: 1fr;
+  }
+
+  .portrait-wrap {
+    min-height: 164px;
+  }
+
+  .portrait {
+    width: 148px;
+    height: 148px;
+  }
+
+  .market-grid,
+  .composer {
+    grid-template-columns: 1fr;
+  }
+
+  .send-btn {
+    min-height: 56px;
+  }
+}

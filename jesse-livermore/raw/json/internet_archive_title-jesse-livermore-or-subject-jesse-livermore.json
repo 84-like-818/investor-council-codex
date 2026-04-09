@@ -1,0 +1,137 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 25,
+    "params": {
+      "query": "title:&quot;Jesse Livermore&quot; OR subject:&quot;Jesse Livermore&quot;",
+      "qin": "title:(&quot;Jesse Livermore&quot;) OR subject:(&quot;Jesse Livermore&quot;)",
+      "fields": "identifier,title,creator,year,mediatype",
+      "wt": "json",
+      "rows": 20,
+      "start": 0
+    }
+  },
+  "response": {
+    "numFound": 19,
+    "start": 0,
+    "docs": [
+      {
+        "identifier": "CSPAN3_20251129_081900_2025_Texas_Book_Festival_-_Andrew_Ross_Sorkin",
+        "mediatype": "movies",
+        "title": "2025 Texas Book Festival - Andrew Ross Sorkin : CSPAN3 : November 29, 2025 3:19am-4:04am EST",
+        "year": 2025
+      },
+      {
+        "identifier": "Reminiscences-Of-A-Stock-Operator-Edwin-Lefevre",
+        "mediatype": "texts",
+        "title": "Reminiscences Of A Stock Operator, Jesse Livermore"
+      },
+      {
+        "identifier": "chet-vi-chung-khoan_20211105",
+        "mediatype": "audio",
+        "title": "Chết Vì Chứng Khoán Jesse Livermore - sachnoi.cc"
+      },
+      {
+        "identifier": "CSPAN2_20251128_082300_2025_Texas_Book_Festival_-_Andrew_Ross_Sorkin",
+        "mediatype": "movies",
+        "title": "2025 Texas Book Festival - Andrew Ross Sorkin : CSPAN2 : November 28, 2025 3:23am-4:08am EST",
+        "year": 2025
+      },
+      {
+        "creator": [
+          "Nick Polson",
+          "Jan Hendrik Witte"
+        ],
+        "identifier": "arxiv-1407.2642",
+        "mediatype": "texts",
+        "title": "A Bellman View of Jesse Livermore",
+        "year": 2014
+      },
+      {
+        "creator": "Hiro",
+        "identifier": "nha-dau-tu-vi-dai",
+        "mediatype": "audio",
+        "title": "Jesse Livermore – Nhà đầu tư vĩ đại (Sách nói)",
+        "year": 2026
+      },
+      {
+        "identifier": "JesseLivermoreReminiscencesOfAStockOperator",
+        "mediatype": "texts",
+        "title": "Jesse Livermore Reminiscences Of A Stock Operator"
+      },
+      {
+        "identifier": "CSPAN2_20251127_201700_2025_Texas_Book_Festival_-_Andrew_Ross_Sorkin",
+        "mediatype": "movies",
+        "title": "2025 Texas Book Festival - Andrew Ross Sorkin : CSPAN2 : November 27, 2025 3:17pm-4:06pm EST",
+        "year": 2025
+      },
+      {
+        "identifier": "jesse-livermore-reminiscences-of-a-stock-operator",
+        "mediatype": "texts",
+        "title": "Jesse Livermore Reminiscences Of A Stock Operator"
+      },
+      {
+        "identifier": "KarmabanqueTV09December2005",
+        "mediatype": "movies",
+        "title": "Karmabanque TV 09 December 2005"
+      },
+      {
+        "creator": "Lefevre, Edwin, 1871-1943",
+        "identifier": "reminiscencesofs0000lefe_l7g7",
+        "mediatype": "texts",
+        "title": "Reminiscences of a stock operator : with new commentary and insights on the life and times of Jesse Livermore",
+        "year": 2010
+      },
+      {
+        "identifier": "chien-luoc-giao-dich-cua-jesse-livermore-nxb-thanh-nien-2022-richard-d-wyckoff-3",
+        "mediatype": "texts",
+        "title": "chien-luoc-giao-dich-cua-jesse-livermore-nxb-thanh-nien-2022-richard-d-wyckoff-302-trang_1600_pdf.gdrive.vip-compressed"
+      },
+      {
+        "identifier": "chet-vi-chung-khoan_202111",
+        "mediatype": "audio",
+        "title": "Chết Vì Chứng Khoán - Jesse Livermore - sachnoi.cc"
+      },
+      {
+        "creator": "Smitten, Richard",
+        "identifier": "amazinglifeofjes00smit",
+        "mediatype": "texts",
+        "title": "The amazing life of Jesse Livermore, world's greatest stock trader : Wall Street legend, Greek tragedy life : secrets of Livermore's techniques and principles never before revealed!",
+        "year": 1999
+      },
+      {
+        "identifier": "CSPAN3_20251128_202100_2025_Texas_Book_Festival_-_Andrew_Ross_Sorkin",
+        "mediatype": "movies",
+        "title": "2025 Texas Book Festival - Andrew Ross Sorkin : CSPAN3 : November 28, 2025 3:21pm-4:06pm EST",
+        "year": 2025
+      },
+      {
+        "creator": "Smitten, Richard",
+        "identifier": "jesselivermore00rich",
+        "mediatype": "texts",
+        "title": "Jesse Livermore : world's greatest stock trader",
+        "year": 2001
+      },
+      {
+        "creator": "Jesse Livermore",
+        "identifier": "how-to-trade-in-stocks-livermore-jesse-l-1940-duell-sloan-pearce",
+        "mediatype": "texts",
+        "title": "How To Trade In Stocks LIVERMORE, Jesse L 1940 Duell, Sloan & Pearce D"
+      },
+      {
+        "creator": "Edwin Lefevre",
+        "identifier": "reminiscences-of-a-stock-operator_202102",
+        "mediatype": "audio",
+        "title": "Reminiscences Of A Stock Operator",
+        "year": 1923
+      },
+      {
+        "creator": "Sarnoff, Paul",
+        "identifier": "jesselivermoresp0000sarn",
+        "mediatype": "texts",
+        "title": "Jesse Livermore speculator-king",
+        "year": 1985
+      }
+    ]
+  }
+}

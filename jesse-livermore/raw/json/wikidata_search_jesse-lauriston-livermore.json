@@ -1,0 +1,33 @@
+{
+  "searchinfo": {
+    "search": "Jesse Lauriston Livermore"
+  },
+  "search": [
+    {
+      "id": "Q724153",
+      "title": "Q724153",
+      "pageid": 680818,
+      "concepturi": "http://www.wikidata.org/entity/Q724153",
+      "repository": "wikidata",
+      "url": "//www.wikidata.org/wiki/Q724153",
+      "display": {
+        "label": {
+          "value": "Jesse Lauriston Livermore",
+          "language": "en"
+        },
+        "description": {
+          "value": "American stock trader (1877–1940)",
+          "language": "en"
+        }
+      },
+      "label": "Jesse Lauriston Livermore",
+      "description": "American stock trader (1877–1940)",
+      "match": {
+        "type": "label",
+        "language": "en",
+        "text": "Jesse Lauriston Livermore"
+      }
+    }
+  ],
+  "success": 1
+}

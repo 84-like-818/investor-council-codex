@@ -1,0 +1,19 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 15,
+    "params": {
+      "query": "title:(&quot;Boy Plunger&quot; biography) OR subject:(&quot;Boy Plunger&quot; biography)",
+      "qin": "title:(&quot;Boy Plunger&quot; biography) OR subject:(&quot;Boy Plunger&quot; biography)",
+      "fields": "identifier,title,creator,year,mediatype",
+      "wt": "json",
+      "rows": 20,
+      "start": 0
+    }
+  },
+  "response": {
+    "numFound": 0,
+    "start": 0,
+    "docs": []
+  }
+}

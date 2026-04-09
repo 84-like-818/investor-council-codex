@@ -1,0 +1,441 @@
+{
+  "numFound": 40,
+  "start": 0,
+  "numFoundExact": true,
+  "num_found": 40,
+  "documentation_url": "https://openlibrary.org/dev/docs/api/search",
+  "q": "Jesse Livermore",
+  "offset": null,
+  "docs": [
+    {
+      "author_key": [
+        "OL578783A",
+        "OL7982930A",
+        "OL8131845A",
+        "OL11295504A",
+        "OL3126734A",
+        "OL13119308A"
+      ],
+      "author_name": [
+        "Edwin Lefèvre",
+        "Price Tim",
+        "Roger Lowenstein",
+        "Richard Richard Wyckoff",
+        "Richard D. Wyckoff",
+        "Richard D. Wyckoff"
+      ],
+      "cover_edition_key": "OL1087786M",
+      "cover_i": 300533,
+      "ebook_access": "printdisabled",
+      "edition_count": 81,
+      "first_publish_year": 1923,
+      "has_fulltext": true,
+      "ia": [
+        "reminiscencesofs0000lefe_l7g7",
+        "reminiscencesofs00lefe",
+        "reminiscencesofs0000lefe",
+        "reminiscencessto00lefe_488"
+      ],
+      "ia_collection": [
+        "americana",
+        "binghamton-ol",
+        "cua-ol",
+        "delawarecountydistrictlibrary",
+        "hamiltonpubliclibrary-ol",
+        "internetarchivebooks",
+        "johnshopkins-ol",
+        "library_of_atlantis",
+        "printdisabled",
+        "riceuniversity-ol",
+        "the-claremont-colleges-ol",
+        "uni-ol",
+        "universityofoklahoma-ol",
+        "universityofthewest-ol"
+      ],
+      "key": "/works/OL3472215W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Reminiscences of a stock operator"
+    },
+    {
+      "author_key": [
+        "OL5281830A"
+      ],
+      "author_name": [
+        "Paul Sarnoff"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1967,
+      "has_fulltext": false,
+      "key": "/works/OL12162047W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Jesse Livermore"
+    },
+    {
+      "author_key": [
+        "OL1238733A"
+      ],
+      "author_name": [
+        "Paul Sarnoff"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1967,
+      "has_fulltext": false,
+      "key": "/works/OL33651975W",
+      "public_scan_b": false,
+      "title": "Jesse Livermore"
+    },
+    {
+      "author_key": [
+        "OL1512646A"
+      ],
+      "author_name": [
+        "Richard Smitten"
+      ],
+      "cover_edition_key": "OL7598674M",
+      "cover_i": 300378,
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 2001,
+      "has_fulltext": false,
+      "key": "/works/OL6023176W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Jesse Livermore"
+    },
+    {
+      "author_key": [
+        "OL1512646A"
+      ],
+      "author_name": [
+        "Richard Smitten"
+      ],
+      "cover_edition_key": "OL25545113M",
+      "cover_i": 9769427,
+      "ebook_access": "no_ebook",
+      "edition_count": 3,
+      "first_publish_year": 2001,
+      "has_fulltext": false,
+      "key": "/works/OL16940357W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Jesse Livermore"
+    },
+    {
+      "author_key": [
+        "OL1238733A"
+      ],
+      "author_name": [
+        "Paul Sarnoff"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1967,
+      "has_fulltext": false,
+      "key": "/works/OL19771117W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Jesse Livermore: speculator-king"
+    },
+    {
+      "author_key": [
+        "OL1512646A"
+      ],
+      "author_name": [
+        "Richard Smitten"
+      ],
+      "cover_edition_key": "OL7619749M",
+      "cover_i": 306158,
+      "ebook_access": "unclassified",
+      "edition_count": 4,
+      "first_publish_year": 2004,
+      "has_fulltext": false,
+      "ia": [
+        "tradelikejesseli00smit_703"
+      ],
+      "key": "/works/OL6023177W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Trade Like Jesse Livermore"
+    },
+    {
+      "author_key": [
+        "OL2637870A"
+      ],
+      "author_name": [
+        "Jesse Livermore"
+      ],
+      "cover_edition_key": "OL9256130M",
+      "cover_i": 60758,
+      "ebook_access": "printdisabled",
+      "edition_count": 5,
+      "first_publish_year": 2006,
+      "has_fulltext": true,
+      "ia": [
+        "howtotradeinstoc0000live"
+      ],
+      "ia_collection": [
+        "internetarchivebooks",
+        "printdisabled"
+      ],
+      "key": "/works/OL7913587W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "How to Trade In Stocks"
+    },
+    {
+      "author_key": [
+        "OL2951836A"
+      ],
+      "author_name": [
+        "Sarnoff"
+      ],
+      "cover_edition_key": "OL8390071M",
+      "cover_i": 713098,
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1985,
+      "has_fulltext": false,
+      "key": "/works/OL8710954W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Jesse Livermore Speculator King"
+    },
+    {
+      "author_key": [
+        "OL2637870A"
+      ],
+      "author_name": [
+        "Jesse Livermore"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 2021,
+      "has_fulltext": false,
+      "key": "/works/OL38351615W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Método de Jesse Livermore"
+    },
+    {
+      "author_key": [
+        "OL7763646A"
+      ],
+      "author_name": [
+        "Arthur Fixed"
+      ],
+      "cover_edition_key": "OL27722820M",
+      "cover_i": 9149961,
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 2016,
+      "has_fulltext": false,
+      "key": "/works/OL20491305W",
+      "public_scan_b": false,
+      "title": "Sun Tzu Meets Jesse Livermore"
+    },
+    {
+      "author_key": [
+        "OL2987618A"
+      ],
+      "author_name": [
+        "Tom Rubython"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 2014,
+      "has_fulltext": false,
+      "key": "/works/OL19743033W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Jesse Livermore"
+    },
+    {
+      "cover_edition_key": "OL26291881M",
+      "cover_i": 7962775,
+      "ebook_access": "printdisabled",
+      "edition_count": 1,
+      "has_fulltext": true,
+      "ia": [
+        "jesselivermore00rich"
+      ],
+      "ia_collection": [
+        "americanuniversity-ol",
+        "binghamton-ol",
+        "dartmouthlibrary-ol",
+        "gwulibraries-ol",
+        "internetarchivebooks",
+        "johnshopkins-ol",
+        "occidentalcollegelibrary-ol",
+        "printdisabled",
+        "riceuniversity-ol",
+        "rochester-ol",
+        "uni-ol",
+        "universityofarizona-ol",
+        "universityofoklahoma-ol",
+        "wilsoncollege-ol"
+      ],
+      "key": "/works/OL17689088W",
+      "public_scan_b": false,
+      "title": "Jesse Livermore : world's greatest stock trader"
+    },
+    {
+      "author_key": [
+        "OL2987618A",
+        "OL8207041A"
+      ],
+      "author_name": [
+        "Tom Rubython",
+        "Paul Tudor Jones"
+      ],
+      "cover_edition_key": "OL39328133M",
+      "cover_i": 13800996,
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 2015,
+      "has_fulltext": false,
+      "key": "/works/OL28661964W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Jesse Livermore - Boy Plunger"
+    },
+    {
+      "author_key": [
+        "OL2637870A",
+        "OL578783A",
+        "OL8514952A"
+      ],
+      "author_name": [
+        "Jesse Livermore",
+        "Edwin Lefèvre",
+        "Richard Wyckoff"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 3,
+      "first_publish_year": 2019,
+      "has_fulltext": false,
+      "key": "/works/OL38202366W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Jesse Livermore's Two Books of Market Wisdom"
+    },
+    {
+      "author_key": [
+        "OL2637870A"
+      ],
+      "author_name": [
+        "Jesse Livermore"
+      ],
+      "cover_edition_key": "OL27845569M",
+      "cover_i": 9237015,
+      "ebook_access": "no_ebook",
+      "edition_count": 2,
+      "first_publish_year": 2018,
+      "has_fulltext": false,
+      "key": "/works/OL20596088W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Jesse Livermore's How-To Trade in Stocks"
+    },
+    {
+      "author_key": [
+        "OL2637870A"
+      ],
+      "author_name": [
+        "Jesse Livermore"
+      ],
+      "cover_i": 7747776,
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 2012,
+      "has_fulltext": false,
+      "key": "/works/OL17523029W",
+      "public_scan_b": false,
+      "title": "Jesse Livermores Methods of Trading in Stocks"
+    },
+    {
+      "author_key": [
+        "OL2637870A",
+        "OL3126734A"
+      ],
+      "author_name": [
+        "Jesse Livermore",
+        "Richard D. Wyckoff"
+      ],
+      "cover_edition_key": "OL36320077M",
+      "cover_i": 12506196,
+      "ebook_access": "no_ebook",
+      "edition_count": 2,
+      "first_publish_year": 2012,
+      "has_fulltext": false,
+      "key": "/works/OL26792386W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "Jesse Livermore's Methods of Trading in Stocks"
+    },
+    {
+      "author_key": [
+        "OL8514952A"
+      ],
+      "author_name": [
+        "Richard Wyckoff"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 2019,
+      "has_fulltext": false,
+      "key": "/works/OL28771971W",
+      "public_scan_b": false,
+      "title": "Jesse Livermore's Methods of Trading in Stocks"
+    },
+    {
+      "author_key": [
+        "OL1757692A"
+      ],
+      "author_name": [
+        "Carlo Maria Flumiani"
+      ],
+      "ebook_access": "no_ebook",
+      "edition_count": 1,
+      "first_publish_year": 1965,
+      "has_fulltext": false,
+      "key": "/works/OL6559774W",
+      "language": [
+        "eng"
+      ],
+      "public_scan_b": false,
+      "title": "The stock market trading secrets of the late Jesse livermore"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "entities": {
+    "Q1979607": {
+      "type": "item",
+      "id": "Q1979607",
+      "labels": {
+        "en": {
+          "language": "en",
+          "value": "financier"
+        }
+      }
+    },
+    "Q3704253": {
+      "type": "item",
+      "id": "Q3704253",
+      "labels": {
+        "en": {
+          "language": "en",
+          "value": "trader"
+        }
+      }
+    }
+  },
+  "success": 1
+}

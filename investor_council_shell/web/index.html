@@ -1,0 +1,243 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>投资大师智能团</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero panel">
+        <div class="hero-brand">
+          <div class="brand-mark-wrap">
+            <img id="brandMark" class="brand-mark" alt="投资大师智能团图标">
+          </div>
+          <div class="brand-copy">
+            <p class="eyebrow">Investor Council</p>
+            <h1 id="brandTitle">投资大师智能团</h1>
+            <p id="brandSubtitle" class="brand-subtitle">正在加载产品信息...</p>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <div id="statusStrip" class="status-strip"></div>
+          <div class="action-row">
+            <button id="refreshRuntimeBtn" class="text-btn" type="button">刷新状态</button>
+            <button id="repairRuntimeBtn" class="secondary-btn compact-btn" type="button">一键修复</button>
+            <button id="toggleDiagnosticsBtn" class="text-btn" type="button">诊断面板</button>
+          </div>
+        </div>
+      </header>
+
+      <section id="blockingBanner" class="blocking-banner panel hidden" aria-live="polite">
+        <div>
+          <p class="eyebrow eyebrow-small">当前阻塞</p>
+          <h2 id="blockingTitle">还差一步才能开始对话</h2>
+          <p id="blockingMessage" class="blocking-copy"></p>
+        </div>
+        <p id="blockingAction" class="blocking-action"></p>
+      </section>
+
+      <main class="layout">
+        <section class="panel mentor-panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow eyebrow-small">人物选择</p>
+              <h2>选择一位投资大师</h2>
+            </div>
+          </div>
+
+          <div class="mentor-shelf">
+            <section>
+              <div class="section-subhead">
+                <h3>已就绪人物</h3>
+                <span id="readyCount" class="count-pill">0</span>
+              </div>
+              <div id="readyMentors" class="mentor-grid"></div>
+            </section>
+
+            <section class="planned-block">
+              <div class="section-subhead">
+                <h3>即将上线</h3>
+                <span id="plannedCount" class="count-pill count-pill-muted">0</span>
+              </div>
+              <div id="plannedMentors" class="planned-grid"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="panel workspace-panel">
+          <div class="section-head section-head-tight">
+            <div>
+              <p class="eyebrow eyebrow-small">对话准备</p>
+              <h2 id="selectedMentorTitle">先选择一位投资大师</h2>
+            </div>
+            <span id="selectedMentorTag" class="selected-tag">未选择</span>
+          </div>
+
+          <section id="selectedMentorCard" class="mentor-focus empty-state">
+            <p>从左侧选定一位人物后，这里会显示人物定位、当前目标线程以及本轮输入区。</p>
+          </section>
+
+          <section class="thread-summary">
+            <div>
+              <p class="eyebrow eyebrow-small">当前目标线程</p>
+              <h3 id="threadPlanTitle">尚未选择人物</h3>
+              <p id="threadPlanCopy" class="thread-plan-copy">默认会优先回到该人物自己的 Codex 线程；如果你想把这次问题单独拆开，也可以强制新开。</p>
+            </div>
+            <div class="thread-pills">
+              <span id="threadModePill" class="meta-pill">优先延续专属线程</span>
+            </div>
+          </section>
+
+          <form id="handoffForm" class="handoff-form">
+            <label class="field-block">
+              <span>当前市场背景</span>
+              <textarea id="marketNotes" placeholder="例如：指数高位震荡，AI 龙头分化，量能回落；我想判断该继续追强还是等回调确认。"></textarea>
+            </label>
+
+            <div class="field-row">
+              <label class="field-block">
+                <span>当前仓位</span>
+                <input id="positionInput" type="text" placeholder="例如：30% 仓位">
+              </label>
+              <label class="field-block">
+                <span>讨论标的</span>
+                <input id="symbolInput" type="text" placeholder="例如：光电股份 / 600184">
+              </label>
+            </div>
+
+            <label class="field-block">
+              <span>你的问题</span>
+              <textarea id="questionInput" required placeholder="例如：明天应该偏向持有、减仓，还是等确认后再处理？"></textarea>
+            </label>
+
+            <div class="quick-actions">
+              <span class="quick-label">快捷提问</span>
+              <div class="quick-chip-row">
+                <button class="quick-chip" type="button" data-question="明天应该偏向持有、减仓，还是等确认后再处理？">明天怎么做</button>
+                <button class="quick-chip" type="button" data-question="现在应该继续追强，还是等回调确认？">追强还是等回调</button>
+                <button class="quick-chip" type="button" data-question="如果我判断错了，失效条件应该怎么设？">失效条件怎么设</button>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button id="continueBtn" class="primary-btn" type="submit">继续该人物对话</button>
+              <button id="newThreadBtn" class="secondary-btn" type="submit">新开该人物线程</button>
+            </div>
+          </form>
+        </section>
+
+        <aside class="panel insight-panel">
+          <div class="section-head section-head-tight">
+            <div>
+              <p class="eyebrow eyebrow-small">最近一次交接</p>
+              <h2>发送结果</h2>
+            </div>
+            <span id="resultMode" class="status-pill neutral">等待操作</span>
+          </div>
+
+          <div class="result-meta-row">
+            <span id="lastSentAt" class="result-time">尚未发送</span>
+          </div>
+
+          <section class="result-card">
+            <label>进入线程</label>
+            <strong id="lastThreadTitle">尚未发送</strong>
+            <p id="threadRouteHint" class="result-message">开始交接后，这里会明确告诉你是回到了已有线程，还是新开了该人物线程。</p>
+          </section>
+
+          <section class="result-card">
+            <label>最近一次提交</label>
+            <pre id="lastSendContent" class="last-send-content">暂时还没有可展示的提交内容。</pre>
+          </section>
+
+          <section class="result-card">
+            <label>最近人物线程</label>
+            <div id="recentThreadList" class="recent-thread-list"></div>
+          </section>
+
+          <section class="result-card notice-card">
+            <label>使用前提与说明</label>
+            <div id="noticeList" class="notice-list"></div>
+          </section>
+
+          <details id="diagnosticsPanel" class="diagnostics-panel">
+            <summary>运行诊断</summary>
+            <div class="diagnostics-body">
+              <div id="runtimeSummary" class="runtime-summary"></div>
+              <div id="diagnosticsList" class="diagnostics-list"></div>
+            </div>
+          </details>
+        </aside>
+      </main>
+    </div>
+
+    <div id="mentorDrawer" class="drawer hidden" aria-hidden="true">
+      <div id="drawerBackdrop" class="drawer-backdrop"></div>
+      <section class="drawer-panel">
+        <button id="closeDrawerBtn" class="drawer-close" type="button" aria-label="关闭详情">&times;</button>
+        <div class="drawer-hero">
+          <img id="drawerAvatar" class="drawer-avatar" alt="导师头像">
+          <div>
+            <p id="drawerStatus" class="eyebrow eyebrow-small">人物详情</p>
+            <h2 id="drawerTitle">投资人物</h2>
+            <p id="drawerSummary" class="drawer-summary"></p>
+          </div>
+        </div>
+        <div class="drawer-meta">
+          <span id="drawerLabel" class="meta-pill"></span>
+          <span id="drawerStyle" class="meta-pill meta-pill-muted"></span>
+        </div>
+        <section class="drawer-section">
+          <h3>人物风格</h3>
+          <p id="drawerPersona" class="drawer-copy"></p>
+        </section>
+        <section class="drawer-section">
+          <h3>预计回答方式</h3>
+          <p id="drawerContract" class="drawer-copy"></p>
+        </section>
+        <div class="drawer-actions">
+          <button id="drawerPrimaryBtn" class="primary-btn" type="button">关注上线</button>
+          <button id="drawerSecondaryBtn" class="secondary-btn" type="button">关闭</button>
+        </div>
+      </section>
+    </div>
+
+    <template id="mentorCardTemplate">
+      <article class="mentor-card">
+        <div class="mentor-card-top">
+          <img class="mentor-avatar" alt="导师头像">
+          <div>
+            <div class="mentor-title-row">
+              <h3 class="mentor-name"></h3>
+              <span class="mentor-status"></span>
+            </div>
+            <p class="mentor-en-name"></p>
+          </div>
+        </div>
+        <p class="mentor-label"></p>
+        <p class="mentor-summary"></p>
+        <div class="mentor-actions">
+          <button class="mentor-action-btn" type="button"></button>
+        </div>
+      </article>
+    </template>
+
+    <template id="plannedCardTemplate">
+      <article class="planned-card">
+        <div class="planned-card-top">
+          <img class="planned-avatar" alt="导师头像">
+          <div>
+            <h3 class="planned-name"></h3>
+            <p class="planned-label"></p>
+          </div>
+        </div>
+        <button class="planned-action text-btn" type="button">查看人物</button>
+      </article>
+    </template>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
+

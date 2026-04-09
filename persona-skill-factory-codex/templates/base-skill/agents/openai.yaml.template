@@ -1,0 +1,10 @@
+interface:
+  display_name: "{{display_name}}"
+  short_description: "{{short_description}}"
+  icon_small: "./assets/avatar-256.png"
+  icon_large: "./assets/avatar-256.png"
+  brand_color: "#b45309"
+  default_prompt: "{{default_prompt}}"
+
+policy:
+  allow_implicit_invocation: false

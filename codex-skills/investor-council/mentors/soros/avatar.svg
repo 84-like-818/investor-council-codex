@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="索罗斯">
+  <rect width="256" height="256" rx="48" fill="#6A3F3F"/>
+  <circle cx="128" cy="96" r="44" fill="#F4EFE2" opacity="0.96"/>
+  <path d="M64 208c10-44 40-66 64-66s54 22 64 66" fill="#E7D8A1"/>
+  <text x="128" y="228" font-size="74" text-anchor="middle" fill="#F8F7F2" font-family="Microsoft YaHei, Segoe UI, sans-serif">索</text>
+</svg>

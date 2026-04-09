@@ -1,0 +1,2 @@
+source_id,title,url,landing_url,category,source_type,access_mode,priority,license,tags,expected_formats,manual_action,notes,enabled
+example-001,Example Source,https://example.org/resource,,primary,landing_page,landing,P1,unknown,"example","html","preserve landing page first","Replace with your own source",1
