@@ -40,10 +40,11 @@ function statusClass(ok, warn = false) {
 }
 
 function modeLabel(mode) {
-  if (mode === "auto_sent") return "已自动发送";
-  if (mode === "clipboard_fallback") return "已复制，待手动发送";
-  if (mode === "clipboard_only") return "仅保留剪贴板";
-  return "等待操作";
+  if (mode === "auto_sent") return "?????";
+  if (mode === "clipboard_fallback") return "?????????";
+  if (mode === "clipboard_only") return "??????";
+  if (mode === "blocked") return "?????";
+  return "????";
 }
 
 function getSelectedMentor() {

@@ -130,29 +130,42 @@ class InvestorCouncilBackend:
         symbol = str(payload.get("symbol") or "")
         question = str(payload.get("question") or "")
         force_new_thread = bool(payload.get("force_new_thread"))
-        result = perform_handoff(
-            mentor_name=mentor_name,
-            market_notes=market_notes,
-            position=position,
-            symbol=symbol,
-            question=question,
-            force_new_thread=force_new_thread,
-        )
-        entry = self._build_handoff_entry(
-            mentor_id=mentor_id,
-            mentor_name=mentor_name,
-            market_notes=market_notes,
-            position=position,
-            symbol=symbol,
-            question=question,
-            force_new_thread=force_new_thread,
-            result=result,
-        )
-        history = append_handoff_history(entry)
-        public_result = self._public_handoff_result(result)
-        public_result["latest_handoff"] = self._latest_successful_handoff(history)
-        public_result["recent_handoffs"] = history[:8]
-        return public_result
+        try:
+            result = perform_handoff(
+                mentor_name=mentor_name,
+                market_notes=market_notes,
+                position=position,
+                symbol=symbol,
+                question=question,
+                force_new_thread=force_new_thread,
+            )
+            entry = self._build_handoff_entry(
+                mentor_id=mentor_id,
+                mentor_name=mentor_name,
+                market_notes=market_notes,
+                position=position,
+                symbol=symbol,
+                question=question,
+                force_new_thread=force_new_thread,
+                result=result,
+            )
+            history = append_handoff_history(entry)
+            public_result = self._public_handoff_result(result)
+            public_result["latest_handoff"] = self._latest_successful_handoff(history)
+            public_result["recent_handoffs"] = history[:8]
+            return public_result
+        except Exception as exc:
+            fallback = {
+                "ok": False,
+                "mode": "blocked",
+                "message": f"交接异常：{exc}",
+                "mentor_name": mentor_name,
+                "market_notes": market_notes,
+                "position": position,
+                "symbol": symbol,
+                "question": question,
+            }
+            return self._public_handoff_result(fallback)
 
     def _build_handoff_entry(
         self,

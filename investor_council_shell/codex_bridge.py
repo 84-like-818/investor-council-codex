@@ -656,6 +656,61 @@ def _find_send_button(window: Any) -> Any | None:
     return candidates[0][1]
 
 
+def _inject_prompt(prompt: str, mentor_name: str, force_new_thread: bool = False) -> tuple[bool, str, str]:
+    _desktop, keyboard, _mouse = _pywinauto()
+    thread_title = thread_title_for_mentor(mentor_name)
+
+    if keyboard is None:
+        return False, "当前环境不支持自动注入，已回退为剪贴板发送。", "blocked"
+
+    window = _find_codex_window()
+    if window is None:
+        return False, "没有找到 Codex 主窗口，已回退为剪贴板发送。", "blocked"
+
+    try:
+        try:
+            window.set_focus()
+        except Exception:
+            try:
+                window.click_input()
+            except Exception:
+                pass
+
+        thread_action, thread_message = _prepare_thread_target(window, thread_title, mentor_name, force_new_thread=force_new_thread)
+        window = _find_codex_window() or window
+
+        composer = None
+        for _ in range(10):
+            composer = _find_composer_region(window)
+            if composer is not None:
+                break
+            time.sleep(0.2)
+            window = _find_codex_window() or window
+
+        if composer is None:
+            return False, f"{thread_message} 但没有找到 Codex 输入框。", thread_action
+
+        try:
+            composer.set_focus()
+        except Exception:
+            _click_control(composer)
+        time.sleep(0.1)
+
+        keyboard.send_keys("^a{BACKSPACE}", pause=0.01)
+        time.sleep(0.05)
+        keyboard.send_keys("^v", pause=0.01)
+        time.sleep(0.18)
+
+        send_button = _find_send_button(window)
+        if send_button is not None and _click_control(send_button):
+            return True, f"{thread_message} 已自动把问题发送到 Codex。", thread_action
+
+        keyboard.send_keys("{ENTER}", pause=0.01)
+        return True, f"{thread_message} 已自动把问题发送到 Codex。", thread_action
+    except Exception as exc:
+        return False, f"自动注入过程中出现异常：{exc}", "blocked"
+
+
 def _normalize_text_field(value: str, fallback: str = "未提供") -> str:
     text = " ".join(str(value or "").strip().split())
     return text if text else fallback
